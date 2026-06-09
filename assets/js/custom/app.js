@@ -8,7 +8,7 @@
             start: "top 60%"
         },
         lenis: null,
-        jsinit() {
+        init() {
             if (this.initialized) return;
             this.initialized = true;
 

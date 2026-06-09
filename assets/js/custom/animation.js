@@ -1,6 +1,4 @@
 (function () {
-    const $ = baunfire.$;
-
     baunfire.Animation = {
         init() {
             

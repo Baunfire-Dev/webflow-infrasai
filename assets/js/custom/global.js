@@ -1,6 +1,4 @@
 (function () {
-    const $ = baunfire.$;
-
     baunfire.Global = {
         init() {
 
@@ -40,7 +38,6 @@
             const triggers = ScrollTrigger.getAll();
 
             triggers.forEach((trigger) => {
-                // if (trigger.vars.id == 'nav-bg-scroll' || trigger.vars.id == 'nav-bg-hide') return;
                 trigger.refresh(true);
             });
         },
