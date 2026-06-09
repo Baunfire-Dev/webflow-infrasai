@@ -1,0 +1,7 @@
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+* {
+	outline: none;
+	box-sizing: border-box;
+}
