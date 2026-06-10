@@ -30,7 +30,7 @@ section.accordion-text-media {
 
 						.atm-image-inner {
 							@apply transition-all duration-500 ease-out;
-							@apply opacity-100 delay-100;
+							@apply opacity-100 delay-200;
 							transform: none;
 						}
 					}
