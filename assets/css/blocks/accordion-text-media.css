@@ -72,6 +72,10 @@ section.accordion-text-media {
 					}
 				}
 			}
+
+            .atm-image {
+                @apply hidden;
+            }
 		}
 
 		&-acc-body {
@@ -93,12 +97,6 @@ section.accordion-text-media {
 		.atm {
 			&-items-wrapper {
 				@apply flex;
-			}
-
-			&-acc {
-				.atm-image {
-					@apply md:hidden;
-				}
 			}
 		}
 	}

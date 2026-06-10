@@ -29,12 +29,12 @@
                     const acc = item.querySelector(".atm-acc");
                     const image = item.querySelector(".atm-image");
 
+                    acc.prepend(image.cloneNode(true));
+
                     if (index == 0) {
                         acc.classList.add("active");
                         image.classList.add("active");
                     }
-
-                    acc.prepend(image.cloneNode(true));
 
                     accsContainer.appendChild(acc);
                     imagesContainer.appendChild(image);
