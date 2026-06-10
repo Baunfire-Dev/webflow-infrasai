@@ -9,8 +9,10 @@
                 const els = document.querySelectorAll("section.accordion-text-media");
                 if (!els.length) return;
 
-                els.forEach(el => setupLayout(el));
-                els.classList.add("active");
+                els.forEach(el => {
+                    setupLayout(el);
+                    el.classList.add("active");
+                });
             }
 
             const setupLayout = (self) => {
