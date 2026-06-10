@@ -1,12 +1,12 @@
 section.accordion-text-media {
 	.atm {
-        &-inner {
-            &[data-wf--accordion-text-media-inner--variant="black"] {
-                .atm-items-wrapper {
-                    @apply flex-row-reverse;
-                }
-            }
-        }
+		&-inner {
+			&[data-wf--accordion-text-media-inner--variant="black"] {
+				.atm-items-wrapper {
+					@apply flex-row-reverse;
+				}
+			}
+		}
 
 		&-items-inner {
 			@apply hidden;
@@ -27,7 +27,7 @@ section.accordion-text-media {
 
 		&-images {
 			@apply md:basis-[46.5rem] relative;
-            @apply max-md:hidden;
+			@apply max-md:hidden;
 
 			.atm {
 				&-image {
@@ -38,7 +38,7 @@ section.accordion-text-media {
 						@apply pointer-events-auto relative;
 
 						.atm-image-inner {
-                            transition-property: transform, opacity;
+							transition-property: transform, opacity;
 							@apply duration-500 ease-out;
 							@apply opacity-100 delay-200;
 							transform: none;
@@ -70,12 +70,16 @@ section.accordion-text-media {
 						@apply opacity-100;
 						transform: none;
 					}
+
+					&-image {
+						@apply block;
+					}
 				}
 			}
 
-            .atm-image {
-                @apply hidden mb-[1.625rem];
-            }
+			.atm-image {
+				@apply hidden mb-[1.625rem];
+			}
 		}
 
 		&-acc-body {
@@ -87,10 +91,10 @@ section.accordion-text-media {
 			transform: translateY(0.75rem);
 		}
 
-        &-bg {
-            @apply transition-opacity duration-500 ease-out;
-            @apply max-lg:opacity-0;
-        }
+		&-bg {
+			@apply transition-opacity duration-500 ease-out;
+			@apply max-lg:opacity-0;
+		}
 	}
 
 	&.active {
