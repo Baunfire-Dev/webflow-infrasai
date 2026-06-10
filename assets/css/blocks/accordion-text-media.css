@@ -55,7 +55,7 @@ section.accordion-text-media {
 
 		&-acc {
 			@apply transition-colors duration-500 ease-out;
-            
+
 			&,
 			& * {
 				@apply cursor-pointer;
@@ -76,7 +76,7 @@ section.accordion-text-media {
 					}
 
 					&-image {
-						@apply block;
+						@apply max-md:block;
 					}
 				}
 			}
