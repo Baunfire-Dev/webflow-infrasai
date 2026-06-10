@@ -26,6 +26,7 @@ section.accordion-text-media {
 
 					&:not(.active) {
 						@apply top-0 left-0 w-full h-auto;
+                        @apply invisible;
 					}
 				}
 
