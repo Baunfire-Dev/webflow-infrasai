@@ -3,6 +3,46 @@ section.accordion-text-media {
 		&-items-inner {
 			@apply hidden;
 		}
+
+		&-items-wrapper {
+			@apply ~gap-[2.5rem]/[7.875rem];
+		}
+
+		&-accs,
+		&-images {
+			@apply flex-1 min-w-0;
+		}
+
+		&-accs {
+			@apply basis-[27.75rem];
+		}
+
+		&-images {
+			@apply basis-[46.5rem] relative;
+
+			.atm {
+				&-image {
+					@apply absolute;
+
+					&:not(.active) {
+						@apply top-0 left-0 w-full h-auto;
+					}
+				}
+
+                &-image-inner {
+					@apply opacity-0 translate-y-[1.25rem];
+				}
+			}
+		}
+
+        &-image {
+            &.active {
+                .atm-image-inner {
+                    @apply transition-all duration-500 ease-out;
+                    @apply opacity-0 translate-y-0;
+                }
+            }
+        }
 	}
 
 	&.active {

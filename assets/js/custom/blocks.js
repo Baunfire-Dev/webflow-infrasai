@@ -24,9 +24,14 @@
                 const accsContainer = self.querySelector(".atm-accs");
                 const imagesContainer = self.querySelector(".atm-images");
 
-                items.forEach(item => {
+                items.forEach((item, index) => {
                     const acc = item.querySelector(".atm-acc");
                     const image = item.querySelector(".atm-image");
+
+                    if (index == 0) {
+                        acc.classList.add("active");
+                        image.classList.add("active");
+                    }
 
                     acc.prepend(image.cloneNode(true));
 
