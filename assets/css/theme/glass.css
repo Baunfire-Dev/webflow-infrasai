@@ -5,8 +5,8 @@
 
 	&.active {
 		@apply border-none overflow-hidden;
-		backdrop-filter: blur(24px) saturate(180%);
-		-webkit-backdrop-filter: blur(24px) saturate(180%);
+		backdrop-filter: blur(24px);
+		-webkit-backdrop-filter: blur(24px);
 	}
 }
 
