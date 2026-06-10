@@ -96,8 +96,10 @@ section.accordion-text-media {
 		}
 
 		&-bg {
-			@apply transition-opacity duration-500 ease-out;
-			@apply max-lg:opacity-0;
+			img {
+				@apply transition-opacity duration-500 ease-out;
+				@apply max-lg:opacity-0;
+			}
 		}
 	}
 
