@@ -36,6 +36,8 @@ section.accordion-text-media {
 		}
 
 		&-image {
+            @apply relative;
+            
 			&.active {
 				.atm-image-inner {
 					@apply transition-all duration-500 ease-out;
