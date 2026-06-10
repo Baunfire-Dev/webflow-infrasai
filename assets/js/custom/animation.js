@@ -5,7 +5,7 @@
         },
 
         handleNav() {
-            const nav = document.querySelector("nav");
+            const nav = document.querySelector("header");
             if (!nav) return;
 
             let lastScrollY = window.scrollY;
