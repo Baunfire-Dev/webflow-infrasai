@@ -9,8 +9,9 @@
                 const els = document.querySelectorAll("section.accordion-text-media");
                 if (!els.length) return;
 
-                els.forEach(el => {
-                    setupLayout(el);
+                els.forEach(self => {
+                    setupLayout(self);
+                    handleAccordion(self);
                     el.classList.add("active");
                 });
 
@@ -41,19 +42,22 @@
             };
 
             const handleAccordion = (self) => {
-                const items = self.querySelectorAll(".atm-item");
-                const accs = self.querySelectorAll(".acc");
+                const accs = self.querySelectorAll(".atm-items-wrapper .atm-acc");
+                const images = self.querySelectorAll(".atm-items-wrapper .atm-image");
                 if (!accs.length) return;
 
-                accs.forEach(acc => {
-                    const head = acc.querySelector(".acc-head");
+                accs.forEach((acc, i) => {
+                    acc.addEventListener("click", (e) => {
+                        if (e.target.closest("a, button")) return;
 
-                    head.addEventListener("click", () => {
                         if (acc.classList.contains("active")) {
                             acc.classList.remove("active");
+                            images[i]?.classList.remove("active");
                         } else {
                             accs.forEach(a => a.classList.remove("active"));
+                            images.forEach(img => img.classList.remove("active"));
                             acc.classList.add("active");
+                            images[i]?.classList.add("active");
 
                             if (window.matchMedia("(max-width: 1200px)").matches) {
                                 scrollToSection(acc);
