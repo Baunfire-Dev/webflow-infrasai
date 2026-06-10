@@ -43,7 +43,7 @@
 
             const handleAccordion = (self) => {
                 const accs = self.querySelectorAll(".atm-items-wrapper .atm-acc");
-                const images = self.querySelectorAll(".atm-items-wrapper .atm-image");
+                const images = self.querySelectorAll(".atm-items-wrapper .atm-images .atm-image");
                 if (!accs.length) return;
 
                 accs.forEach((acc, i) => {
