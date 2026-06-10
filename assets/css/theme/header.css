@@ -15,7 +15,8 @@ header {
 		@apply pointer-events-none;
 
 		nav {
-			@apply -translate-y-full pointer-events-none;
+			@apply pointer-events-none;
+            transform: translateY(-100%);
 		}
 	}
 }
