@@ -49,7 +49,7 @@
                 accs.forEach((acc, i) => {
                     acc.addEventListener("click", (e) => {
                         if (e.target.closest("a, button")) return;
-                        if (acc.classList.contains("active")) return; {
+                        if (acc.classList.contains("active")) return;
 
                         accs.forEach(a => a.classList.remove("active"));
                         images.forEach(img => img.classList.remove("active"));
