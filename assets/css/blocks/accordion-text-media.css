@@ -13,20 +13,21 @@ section.accordion-text-media {
 		}
 
 		&-items-wrapper {
-			@apply ~gap-[2.5rem]/[7.875rem];
+			@apply ~md:~gap-[2.5rem]/[7.875rem];
 		}
 
 		&-accs,
 		&-images {
-			@apply flex-1 min-w-0;
+			@apply md:flex-1 min-w-0;
 		}
 
 		&-accs {
-			@apply basis-[27.75rem];
+			@apply md:basis-[27.75rem];
 		}
 
 		&-images {
-			@apply basis-[46.5rem] relative;
+			@apply md:basis-[46.5rem] relative;
+            @apply max-md:hidden;
 
 			.atm {
 				&-image {
