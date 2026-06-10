@@ -27,8 +27,6 @@
 				--text-3: #a1a09c;
 				--border: #e4e3df;
 				--border-2: #d4d3ce;
-				--accent: #111110;
-				--mono: "Courier New", monospace;
 			}
 
 			@media (prefers-color-scheme: dark) {
@@ -41,13 +39,12 @@
 					--text-3: #6b6a67;
 					--border: #2a2a28;
 					--border-2: #363633;
-					--accent: #eeede9;
 				}
 			}
 
 			body {
 				font-family: "Inter", sans-serif;
-				font-size: 14px;
+				font-size: 16px;
 				background: var(--bg);
 				color: var(--text);
 				line-height: 1.5;
@@ -56,15 +53,14 @@
 			}
 
 			.page {
-				max-width: 560px;
+				max-width: 580px;
 				margin: 0 auto;
 			}
 
 			h1 {
-				font-size: 15px;
+				font-size: 18px;
 				font-weight: 500;
 				margin-bottom: 40px;
-				color: var(--text);
 			}
 
 			section {
@@ -72,7 +68,7 @@
 			}
 
 			.section-label {
-				font-size: 11px;
+				font-size: 12px;
 				font-weight: 500;
 				text-transform: uppercase;
 				letter-spacing: 0.08em;
@@ -94,7 +90,7 @@
 			}
 
 			label {
-				font-size: 12px;
+				font-size: 13px;
 				color: var(--text-2);
 			}
 
@@ -106,10 +102,10 @@
 
 			input[type="number"] {
 				width: 100%;
-				height: 36px;
-				padding: 0 10px;
+				height: 40px;
+				padding: 0 12px;
 				font-family: "Inter", sans-serif;
-				font-size: 14px;
+				font-size: 15px;
 				color: var(--text);
 				background: var(--bg);
 				border: 1px solid var(--border);
@@ -133,31 +129,31 @@
 			}
 
 			.unit {
-				font-size: 12px;
+				font-size: 13px;
 				color: var(--text-3);
-				min-width: 24px;
+				min-width: 28px;
 				flex-shrink: 0;
 			}
 
 			.hint {
-				font-size: 12px;
+				font-size: 13px;
 				color: var(--text-3);
 				margin-top: 4px;
 			}
 
 			.small-field {
-				max-width: 160px;
+				max-width: 180px;
 			}
 
 			.output {
 				background: var(--bg-2);
 				border-radius: 8px;
-				padding: 16px;
+				padding: 18px;
 				margin-top: 24px;
 			}
 
 			.output-label {
-				font-size: 11px;
+				font-size: 12px;
 				color: var(--text-3);
 				margin-bottom: 10px;
 				text-transform: uppercase;
@@ -165,26 +161,26 @@
 			}
 
 			.clamp-val {
-				font-family: var(--mono);
-				font-size: 13px;
+				font-family: "Courier New", monospace;
+				font-size: 14px;
 				color: var(--text);
 				word-break: break-all;
 				line-height: 1.7;
 			}
 
 			.copy-btn {
-				margin-top: 12px;
 				display: inline-flex;
 				align-items: center;
 				gap: 6px;
 				font-family: "Inter", sans-serif;
-				font-size: 12px;
+				font-size: 13px;
 				color: var(--text-2);
 				background: none;
 				border: 1px solid var(--border);
 				border-radius: 5px;
-				padding: 5px 10px;
+				padding: 6px 12px;
 				cursor: pointer;
+				margin-top: 12px;
 			}
 
 			.copy-btn:hover {
@@ -205,26 +201,26 @@
 			.stat {
 				background: var(--bg-3);
 				border-radius: 6px;
-				padding: 10px 12px;
+				padding: 12px 14px;
 			}
 
 			.stat-val {
-				font-family: var(--mono);
-				font-size: 13px;
+				font-family: "Courier New", monospace;
+				font-size: 14px;
 				font-weight: 500;
 				color: var(--text);
 			}
 
 			.stat-key {
-				font-size: 11px;
+				font-size: 12px;
 				color: var(--text-3);
-				margin-top: 2px;
+				margin-top: 3px;
 			}
 
 			.tag {
 				display: inline-block;
-				font-size: 11px;
-				padding: 2px 8px;
+				font-size: 12px;
+				padding: 2px 9px;
 				border-radius: 4px;
 				margin-bottom: 14px;
 			}
@@ -259,12 +255,13 @@
 				display: flex;
 				gap: 4px;
 				margin-bottom: 20px;
+				flex-wrap: wrap;
 			}
 
 			.tab {
 				font-family: "Inter", sans-serif;
-				font-size: 12px;
-				padding: 5px 12px;
+				font-size: 13px;
+				padding: 6px 14px;
 				border: 1px solid var(--border);
 				border-radius: 5px;
 				background: none;
@@ -284,30 +281,37 @@
 
 			.conv-row {
 				display: grid;
-				grid-template-columns: 1fr 24px 1fr;
+				grid-template-columns: 1fr 28px 1fr;
 				gap: 12px;
 				align-items: end;
 			}
 
 			.arrow {
-				font-size: 14px;
+				font-size: 16px;
 				color: var(--text-3);
-				padding-bottom: 10px;
+				padding-bottom: 12px;
 				text-align: center;
 			}
 
+			.result-wrap {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-top: 6px;
+				gap: 8px;
+			}
+
 			.result-big {
-				font-family: var(--mono);
-				font-size: 20px;
+				font-family: "Courier New", monospace;
+				font-size: 22px;
 				font-weight: 500;
 				color: var(--text);
-				padding-top: 6px;
 			}
 
 			.base-row {
 				display: flex;
 				align-items: center;
-				gap: 8px;
+				gap: 10px;
 				margin-top: 16px;
 				padding-top: 16px;
 				border-top: 1px solid var(--border);
@@ -316,9 +320,8 @@
 			.base-row label {
 				white-space: nowrap;
 			}
-
 			.base-row input {
-				width: 64px;
+				width: 72px;
 				flex-shrink: 0;
 			}
 		</style>
@@ -369,17 +372,17 @@
 						<span class="unit">px</span>
 					</div>
 				</div>
-
-				<p class="hint" style="margin-top: 8px">
-					set max value smaller than min to reverse the fluid
-					direction
-				</p>
-
+                
 				<div class="output">
 					<div class="output-label">output</div>
 					<div id="tag-wrap"></div>
 					<div class="clamp-val" id="clamp-out">—</div>
-					<button class="copy-btn" onclick="doCopy()">copy</button>
+					<button
+						class="copy-btn"
+						onclick="doCopy('clamp-out', this)"
+					>
+						copy
+					</button>
 				</div>
 
 				<div class="stats" id="stats"></div>
@@ -396,12 +399,6 @@
 					</button>
 					<button class="tab" onclick="setTab('rem-px', this)">
 						rem → px
-					</button>
-					<button class="tab" onclick="setTab('px-em', this)">
-						px → em
-					</button>
-					<button class="tab" onclick="setTab('em-px', this)">
-						em → px
 					</button>
 				</div>
 
@@ -421,7 +418,16 @@
 					<div class="arrow">→</div>
 					<div class="field">
 						<label id="c-to-label">result in rem</label>
-						<div class="result-big" id="c-result">1rem</div>
+						<div class="result-wrap">
+							<div class="result-big" id="c-result">1rem</div>
+							<button
+								class="copy-btn"
+								style="margin-top: 0"
+								onclick="doCopy('c-result', this)"
+							>
+								copy
+							</button>
+						</div>
 					</div>
 				</div>
 
@@ -449,6 +455,10 @@
 			document
 				.getElementById("c-base")
 				.addEventListener("input", calcConv);
+
+			function trim(n, places) {
+				return parseFloat(n.toFixed(places));
+			}
 
 			function calcClamp() {
 				var vpMax = +document.getElementById("vp-max").value;
@@ -481,10 +491,10 @@
 
 				var slope = (vMax - vMin) / (vpMax - vpMin);
 				var intercept = vMin - slope * vpMin;
-				var slopeVw = +(slope * 100).toFixed(4);
-				var cMinRem = +(cMin / base).toFixed(4);
-				var cMaxRem = +(cMax / base).toFixed(4);
-				var intRem = +(intercept / base).toFixed(4);
+				var slopeVw = trim(slope * 100, 4);
+				var cMinRem = trim(cMin / base, 4);
+				var cMaxRem = trim(cMax / base, 4);
+				var intRem = trim(intercept / base, 4);
 
 				var preferred =
 					intRem >= 0
@@ -526,16 +536,10 @@
 				if (!base) return;
 				var result, unit;
 				if (tab === "px-rem") {
-					result = (val / base).toFixed(4);
+					result = trim(val / base, 4);
 					unit = "rem";
 				} else if (tab === "rem-px") {
-					result = (val * base).toFixed(4);
-					unit = "px";
-				} else if (tab === "px-em") {
-					result = (val / base).toFixed(4);
-					unit = "em";
-				} else if (tab === "em-px") {
-					result = (val * base).toFixed(4);
+					result = trim(val * base, 4);
 					unit = "px";
 				}
 				document.getElementById("c-result").textContent = result + unit;
@@ -550,8 +554,6 @@
 				var map = {
 					"px-rem": ["value in px", "px", "result in rem"],
 					"rem-px": ["value in rem", "rem", "result in px"],
-					"px-em": ["value in px", "px", "result in em"],
-					"em-px": ["value in em", "em", "result in px"],
 				};
 				document.getElementById("c-from-label").textContent = map[t][0];
 				document.getElementById("c-from-unit").textContent = map[t][1];
@@ -559,11 +561,10 @@
 				calcConv();
 			}
 
-			function doCopy() {
-				var text = document.getElementById("clamp-out").textContent;
-				if (!text.startsWith("clamp")) return;
+			function doCopy(id, btn) {
+				var text = document.getElementById(id).textContent;
+				if (!text || text === "—") return;
 				navigator.clipboard.writeText(text).then(function () {
-					var btn = document.querySelector(".copy-btn");
 					btn.textContent = "copied";
 					setTimeout(function () {
 						btn.textContent = "copy";
