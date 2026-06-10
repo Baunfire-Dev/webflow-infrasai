@@ -13,6 +13,8 @@
                     setupLayout(el);
                     el.classList.add("active");
                 });
+
+                baunfire.Global.screenSizeChange();
             }
 
             const setupLayout = (self) => {
