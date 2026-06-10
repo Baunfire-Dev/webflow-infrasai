@@ -12,7 +12,7 @@
                 els.forEach(self => {
                     setupLayout(self);
                     handleAccordion(self);
-                    el.classList.add("active");
+                    self.classList.add("active");
                 });
 
                 baunfire.Global.screenSizeChange();
