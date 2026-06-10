@@ -81,6 +81,7 @@
                     <div class="right-edge"></div>
                     <div class="scanline"></div>
                 `);
+                card.classList.add('active');
             });
         }
     };
