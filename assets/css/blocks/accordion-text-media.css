@@ -74,7 +74,7 @@ section.accordion-text-media {
 			}
 
             .atm-image {
-                @apply hidden;
+                @apply hidden mb-[1.625rem];
             }
 		}
 
