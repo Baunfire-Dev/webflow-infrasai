@@ -22,13 +22,12 @@ section.accordion-text-media {
 
 			.atm {
 				&-image {
-					&:not(.active) {
-						@apply absolute;
-						@apply top-0 left-0 w-full h-auto;
-						@apply invisible;
-					}
+					@apply absolute pointer-events-none;
+					@apply top-0 left-0 w-full h-auto;
 
 					&.active {
+                        @apply pointer-events-auto relative;
+
 						.atm-image-inner {
 							@apply transition-all duration-500 ease-out;
 							@apply opacity-100 translate-y-0;
@@ -40,10 +39,6 @@ section.accordion-text-media {
 					@apply opacity-0 translate-y-[1.25rem];
 				}
 			}
-		}
-
-		&-image {
-			@apply relative;
 		}
 
 		&-acc {
