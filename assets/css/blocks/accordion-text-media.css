@@ -29,20 +29,51 @@ section.accordion-text-media {
 					}
 				}
 
-                &-image-inner {
+				&-image-inner {
 					@apply opacity-0 translate-y-[1.25rem];
 				}
 			}
 		}
 
-        &-image {
-            &.active {
-                .atm-image-inner {
-                    @apply transition-all duration-500 ease-out;
-                    @apply opacity-0 translate-y-0;
-                }
+		&-image {
+			&.active {
+				.atm-image-inner {
+					@apply transition-all duration-500 ease-out;
+					@apply opacity-0 translate-y-0;
+				}
+			}
+		}
+
+		&-acc {
+            &, & * {
+                @apply cursor-pointer;
             }
-        }
+            
+			&:not(.active) {
+				.atm {
+					&-acc-body {
+						@apply h-0;
+					}
+
+                    &-acc-body-inner {
+						@apply opacity-0 translate-y-[1.25rem];
+					}
+				}
+			}
+
+			&.active {
+				.atm {
+					&-acc-body {
+						@apply h-auto;
+					}
+
+					&-acc-body-inner {
+						@apply transition-all duration-500 ease-out;
+						@apply opacity-0 translate-y-0;
+					}
+				}
+			}
+		}
 	}
 
 	&.active {
