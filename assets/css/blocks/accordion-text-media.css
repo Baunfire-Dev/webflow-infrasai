@@ -85,7 +85,7 @@ section.accordion-text-media {
 
         &-bg {
             @apply transition-opacity duration-500 ease-out;
-            @apply max-md:opacity-0;
+            @apply max-lg:opacity-0;
         }
 	}
 
