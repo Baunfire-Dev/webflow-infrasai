@@ -49,19 +49,15 @@
                 accs.forEach((acc, i) => {
                     acc.addEventListener("click", (e) => {
                         if (e.target.closest("a, button")) return;
+                        if (acc.classList.contains("active")) return; {
 
-                        if (acc.classList.contains("active")) {
-                            acc.classList.remove("active");
-                            images[i]?.classList.remove("active");
-                        } else {
-                            accs.forEach(a => a.classList.remove("active"));
-                            images.forEach(img => img.classList.remove("active"));
-                            acc.classList.add("active");
-                            images[i]?.classList.add("active");
+                        accs.forEach(a => a.classList.remove("active"));
+                        images.forEach(img => img.classList.remove("active"));
+                        acc.classList.add("active");
+                        images[i]?.classList.add("active");
 
-                            if (window.matchMedia("(max-width: 1200px)").matches) {
-                                scrollToSection(acc);
-                            }
+                        if (window.matchMedia("(max-width: 1200px)").matches) {
+                            scrollToSection(acc);
                         }
 
                         baunfire.Global.screenSizeChange();
