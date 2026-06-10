@@ -54,7 +54,7 @@ section.accordion-text-media {
 		}
 
 		&-acc {
-			@apply transition-colors duration-500 ease-out;
+			@apply transition-colors duration-200 ease-out;
 
 			&,
 			& * {
