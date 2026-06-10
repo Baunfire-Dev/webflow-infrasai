@@ -26,17 +26,19 @@ section.accordion-text-media {
 					@apply top-0 left-0 w-full h-auto;
 
 					&.active {
-                        @apply pointer-events-auto relative;
+						@apply pointer-events-auto relative;
 
 						.atm-image-inner {
 							@apply transition-all duration-500 ease-out;
-							@apply opacity-100 translate-y-0;
+							@apply opacity-100;
+							transform: none;
 						}
 					}
 				}
 
 				&-image-inner {
-					@apply opacity-0 translate-y-[1.25rem];
+					@apply opacity-0;
+					transform: translateY(1.25rem);
 				}
 			}
 		}
@@ -55,7 +57,8 @@ section.accordion-text-media {
 
 					&-acc-body-inner {
 						@apply transition-all duration-500 ease-out;
-						@apply opacity-100 translate-y-0;
+						@apply opacity-100;
+						transform: none;
 					}
 				}
 			}
@@ -66,7 +69,8 @@ section.accordion-text-media {
 		}
 
 		&-acc-body-inner {
-			@apply opacity-0 translate-y-[1.25rem];
+			@apply opacity-0;
+			transform: translateY(1.25rem);
 		}
 	}
 
