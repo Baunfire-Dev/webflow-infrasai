@@ -37,7 +37,8 @@ section.accordion-text-media {
 						@apply pointer-events-auto relative;
 
 						.atm-image-inner {
-							@apply transition-all duration-500 ease-out;
+                            transition-property: transform, opacity;
+							@apply duration-500 ease-out;
 							@apply opacity-100 delay-200;
 							transform: none;
 						}
