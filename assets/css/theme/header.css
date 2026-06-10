@@ -1,0 +1,21 @@
+header {
+	nav {
+		@apply transition-all duration-500 ease-out;
+	}
+
+	&:has(.nav-item.open),
+	&.nav-scrolled,
+	&.mob-active {
+		nav {
+			background-color: var(--_colors---black);
+		}
+	}
+
+	&.nav-hidden {
+		@apply pointer-events-none;
+
+		nav {
+			@apply -translate-y-full pointer-events-none;
+		}
+	}
+}

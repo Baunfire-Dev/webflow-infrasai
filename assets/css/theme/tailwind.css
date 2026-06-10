@@ -1,6 +1,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import "header";
 @import "glass";
 @import-glob "../blocks/*.css";
 
