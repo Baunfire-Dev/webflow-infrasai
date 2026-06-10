@@ -82,6 +82,11 @@ section.accordion-text-media {
 			@apply opacity-0;
 			transform: translateY(0.75rem);
 		}
+
+        &-bg {
+            @apply transition-opacity duration-500 ease-out;
+            @apply max-md:opacity-0;
+        }
 	}
 
 	&.active {
