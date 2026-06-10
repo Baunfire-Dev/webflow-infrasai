@@ -54,12 +54,16 @@ section.accordion-text-media {
 		}
 
 		&-acc {
+			@apply transition-colors duration-500 ease-out;
+            
 			&,
 			& * {
 				@apply cursor-pointer;
 			}
 
 			&.active {
+				@apply border-t-white;
+
 				.atm {
 					&-acc-body {
 						@apply h-auto;
