@@ -22,11 +22,10 @@ section.accordion-text-media {
 
 			.atm {
 				&-image {
-					@apply absolute;
-
 					&:not(.active) {
+						@apply absolute;
 						@apply top-0 left-0 w-full h-auto;
-                        @apply invisible;
+						@apply invisible;
 					}
 				}
 
@@ -46,17 +45,18 @@ section.accordion-text-media {
 		}
 
 		&-acc {
-            &, & * {
-                @apply cursor-pointer;
-            }
-            
+			&,
+			& * {
+				@apply cursor-pointer;
+			}
+
 			&:not(.active) {
 				.atm {
 					&-acc-body {
 						@apply h-0;
 					}
 
-                    &-acc-body-inner {
+					&-acc-body-inner {
 						@apply opacity-0 translate-y-[1.25rem];
 					}
 				}
