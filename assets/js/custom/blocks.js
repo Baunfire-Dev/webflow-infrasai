@@ -1,0 +1,73 @@
+(function () {
+    baunfire.Blocks = {
+        init() {
+            this.accordionTextmedia();
+        },
+
+        accordionTextmedia() {
+            const script = () => {
+                const els = document.querySelectorAll("section.accordion-text-media");
+                if (!els.length) return;
+
+                els.forEach(el => setupLayout(el));
+                els.classList.add("active");
+            }
+
+            const setupLayout = (self) => {
+                const items = self.querySelectorAll(".atm-item");
+                if (!items.length) return;
+
+                const accsContainer = self.querySelector(".atm-accs");
+                const imagesContainer = self.querySelector(".atm-images");
+
+                items.forEach(item => {
+                    const acc = item.querySelector(".atm-acc");
+                    const image = item.querySelector(".atm-image");
+
+                    acc.prepend(image.cloneNode(true));
+
+                    accsContainer.appendChild(acc);
+                    imagesContainer.appendChild(image);
+                });
+            };
+
+            const handleAccordion = (self) => {
+                const items = self.querySelectorAll(".atm-item");
+                const accs = self.querySelectorAll(".acc");
+                if (!accs.length) return;
+
+                accs.forEach(acc => {
+                    const head = acc.querySelector(".acc-head");
+
+                    head.addEventListener("click", () => {
+                        if (acc.classList.contains("active")) {
+                            acc.classList.remove("active");
+                        } else {
+                            accs.forEach(a => a.classList.remove("active"));
+                            acc.classList.add("active");
+
+                            if (window.matchMedia("(max-width: 1200px)").matches) {
+                                scrollToSection(acc);
+                            }
+                        }
+
+                        baunfire.Global.screenSizeChange();
+                    });
+                });
+            }
+
+            const scrollToSection = (el) => {
+                baunfire.lenis?.stop();
+                baunfire.lenis?.start();
+                baunfire.lenis?.scrollTo(el, {
+                    duration: 1,
+                    offset: -100,
+                });
+            };
+
+            script();
+        },
+    };
+
+    baunfire.addModule(baunfire.Blocks);
+})();

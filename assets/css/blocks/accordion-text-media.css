@@ -1,0 +1,21 @@
+section.accordion-text-media {
+	.atm {
+		&-items-inner {
+			@apply hidden;
+		}
+	}
+
+	&.active {
+		.atm {
+			&-items-wrapper {
+				@apply flex;
+			}
+
+			&-acc {
+				.atm-image {
+					@apply md:hidden;
+				}
+			}
+		}
+	}
+}

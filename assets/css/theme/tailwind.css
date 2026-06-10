@@ -1,6 +1,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 @import "glass";
+@import-glob "../blocks/*.css";
 
 * {
 	outline: none;

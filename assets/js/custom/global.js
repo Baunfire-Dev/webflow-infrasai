@@ -83,7 +83,7 @@
                 `);
                 card.classList.add('active');
             });
-        }
+        },
     };
 
     baunfire.addModule(baunfire.Global);
