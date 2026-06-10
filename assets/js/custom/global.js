@@ -1,7 +1,7 @@
 (function () {
     baunfire.Global = {
         init() {
-
+            this.generateGlass();
         },
 
         debounce(func, delay = 300) {
@@ -70,6 +70,19 @@
                 console.log(`%c${label} %c ${message}`, style1, style2);
             }
         },
+
+        generateGlass() {
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.insertAdjacentHTML('afterbegin', `
+                    <div class="rim"></div>
+                    <div class="inner-glow"></div>
+                    <div class="top-gloss"></div>
+                    <div class="left-edge"></div>
+                    <div class="right-edge"></div>
+                    <div class="scanline"></div>
+                `);
+            });
+        }
     };
 
     baunfire.addModule(baunfire.Global);
