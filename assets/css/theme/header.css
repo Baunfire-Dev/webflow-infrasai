@@ -11,7 +11,7 @@ header {
 		}
 	}
 
-	&.nav-hidden {
+	&.nav-scrolling-down {
 		@apply pointer-events-none;
 
 		nav {
