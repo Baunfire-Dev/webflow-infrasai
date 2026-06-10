@@ -24,21 +24,15 @@ section.accordion-text-media {
 				&-image {
 					@apply absolute pointer-events-none;
 					@apply top-0 left-0 w-full h-auto;
+                    @apply opacity-0;
+					transform: translateY(1.25rem);
 
 					&.active {
-						@apply pointer-events-auto relative;
-
-						.atm-image-inner {
-							@apply transition-all duration-500 ease-out;
-							@apply opacity-100 delay-300;
-							transform: none;
-						}
+						@apply relative pointer-events-auto;
+                        @apply transition-all duration-500 ease-out;
+                        @apply opacity-100 delay-300;
+                        transform: none;
 					}
-				}
-
-				&-image-inner {
-					@apply opacity-0;
-					transform: translateY(1.25rem);
 				}
 			}
 		}
