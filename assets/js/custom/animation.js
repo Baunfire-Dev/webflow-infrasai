@@ -69,7 +69,9 @@
                                 };
                             }
 
-                            return gsap.from(self.words, props);
+                            return gsap.fromTo(self.words, { props }, {
+                                y: '-0.06em',
+                            });
                         }
                     });
                 });
