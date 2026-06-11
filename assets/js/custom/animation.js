@@ -63,7 +63,8 @@
                             if (hasTrigger && triggerEl) {
                                 props.scrollTrigger = {
                                     trigger: triggerEl,
-                                    start: baunfire.anim.start
+                                    start: baunfire.anim.start,
+                                    markers: true
                                 };
                             }
 
