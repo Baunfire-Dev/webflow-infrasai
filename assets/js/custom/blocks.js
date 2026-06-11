@@ -84,11 +84,11 @@
                 if (!els.length) return;
 
                 els.forEach(self => {
-                    handleStatCount(self);
+                    handleStats(self);
                 });
             }
 
-            const handleStatCount = (self) => {
+            const handleStats = (self) => {
                 const items = self.querySelectorAll(".sp-stat");
                 if (!items.length) return;
 
