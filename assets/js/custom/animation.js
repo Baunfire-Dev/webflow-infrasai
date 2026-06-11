@@ -59,7 +59,7 @@
                                 y: "100%",
                                 duration: 0.6,
                                 ease: "power2.out",
-                                stagger: 0.08,
+                                stagger: 0.03,
                             };
 
                             if (hasTrigger && triggerEl) {
