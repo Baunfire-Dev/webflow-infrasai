@@ -12,8 +12,8 @@
                 if (!els.length) return;
 
                 els.forEach(self => {
-                    handleEntrance(self);
                     handleVideo(self);
+                    handleEntrance(self);
                 });
             }
 
