@@ -29,6 +29,13 @@
                     }
                 });
 
+                if (videoContainer) {
+                    tl.fromTo(videoContainer,
+                        { x: "80%", autoAlpha: 0 },
+                        { x: "0%", autoAlpha: 1, duration: 0.7, ease: "power2.out" },
+                    );
+                }
+
                 if (headTexts) {
                     SplitText.create(headTexts, {
                         type: "words",
@@ -38,18 +45,11 @@
 
                             tl.fromTo(split.words,
                                 { y: "100%" },
-                                { y: "-5%", duration: 0.6, ease: "power2.out", stagger: 0.03 }
+                                { y: "-5%", duration: 0.6, ease: "power2.out", stagger: 0.03 },
+                                "-=0.3"
                             );
-                        }
+                        },
                     });
-                }
-
-                if (videoContainer) {
-                    tl.fromTo(videoContainer,
-                        { x: "80%", autoAlpha: 0 },
-                        { x: "0%", autoAlpha: 1, duration: 0.7, ease: "power2.out" },
-                        "-=0.3"
-                    );
                 }
 
                 if (featuredArticle) {
