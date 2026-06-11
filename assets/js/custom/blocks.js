@@ -38,7 +38,7 @@
 
                             tl.fromTo(split.words,
                                 { y: "100%" },
-                                { y: "0", duration: 0.6, ease: "power2.out", stagger: 0.03 }
+                                { y: "-5%", duration: 0.6, ease: "power2.out", stagger: 0.03 }
                             );
                         }
                     });
