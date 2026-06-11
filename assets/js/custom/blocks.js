@@ -13,6 +13,7 @@
 
                 els.forEach(self => {
                     handleVideo(self);
+                    handleEntrance(self);
                 });
             }
 
