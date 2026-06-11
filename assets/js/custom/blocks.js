@@ -19,7 +19,7 @@
 
             const handleEntrance = (self) => {
                 const headTexts = self.querySelector(".hh-head");
-                const videoContainer = self.querySelector(".hh-video-c");
+                const certificateLogo = self.querySelector(".hh-logo");
                 const featuredArticle = self.querySelector(".hh-feature");
 
                 const tl = gsap.timeline({
@@ -44,6 +44,14 @@
                             );
                         },
                     });
+                }
+
+                if (certificateLogo) {
+                    tl.fromTo(certificateLogo,
+                        { autoAlpha: 0 },
+                        { autoAlpha: 1, duration: 0.6, ease: "power2.out" },
+                        "-=0.3"
+                    );
                 }
 
                 if (featuredArticle) {
