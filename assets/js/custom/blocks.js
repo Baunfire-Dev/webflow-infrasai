@@ -19,7 +19,7 @@
 
             const handleEntrance = (self) => {
                 const headTexts = self.querySelector(".hh-head");
-                const videoContainer = self.querySelector(".hh-video");
+                const videoContainer = self.querySelector(".hh-video-c");
                 const featuredArticle = self.querySelector(".hh-feature");
 
                 const tl = gsap.timeline({
