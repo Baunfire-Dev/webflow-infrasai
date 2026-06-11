@@ -22,11 +22,11 @@
                 const featuredArticle = self.querySelector(".hh-feature");
 
                 const tl = gsap.timeline({
-                    delay: 0.2,
+                    paused: true,
                     scrollTrigger: {
                         trigger: self,
                         start: baunfire.anim.start,
-                        once: true
+                        onEnter: () => tl.delay(0.3).play()
                     }
                 });
 
