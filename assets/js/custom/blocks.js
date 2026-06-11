@@ -27,7 +27,7 @@
                     scrollTrigger: {
                         trigger: self,
                         start: baunfire.anim.start,
-                        onEnter: () => tl.delay(0.3).play()
+                        onEnter: () => tl.delay(0.5).play()
                     }
                 });
 
@@ -56,17 +56,17 @@
             };
 
             const handleVideo = (self) => {
-                const videoEL = self.querySelector("video");
-                if (!videoEL) return;
+                const video = self.querySelector("video");
+                if (!video) return;
 
                 ScrollTrigger.create({
                     trigger: self,
                     start: "top center",
                     end: "bottom 30%",
-                    onEnter: () => videoEL.play(),
-                    onEnterBack: () => videoEL.play(),
-                    onLeave: () => videoEL.pause(),
-                    onLeaveBack: () => videoEL.pause(),
+                    onEnter: () => video.play(),
+                    onEnterBack: () => video.play(),
+                    onLeave: () => video.pause(),
+                    onLeaveBack: () => video.pause(),
                 });
             }
 
