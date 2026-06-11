@@ -54,9 +54,9 @@
 
                 if (featuredArticle) {
                     tl.fromTo(featuredArticle,
-                        { y: 40, autoAlpha: 0 },
-                        { y: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" },
-                        "-=0.3"
+                        { autoAlpha: 0 },
+                        { autoAlpha: 1, duration: 0.6, ease: "power2.out" },
+                        "<0.3"
                     );
                 }
             };
