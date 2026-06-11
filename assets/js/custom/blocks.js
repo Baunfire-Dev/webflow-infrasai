@@ -13,7 +13,6 @@
 
                 els.forEach(self => {
                     handleVideo(self);
-                    handleEntrance(self);
                 });
             }
 
@@ -23,9 +22,11 @@
                 const featuredArticle = self.querySelector(".hh-feature");
 
                 const tl = gsap.timeline({
+                    delay: 0.2,
                     scrollTrigger: {
                         trigger: self,
-                        start: baunfire.anim.start
+                        start: baunfire.anim.start,
+                        once: true
                     }
                 });
 
