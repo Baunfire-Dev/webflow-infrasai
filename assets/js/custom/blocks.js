@@ -47,8 +47,8 @@
 
                 if (featuredArticle) {
                     tl.fromTo(featuredArticle,
-                        { x: 30, autoAlpha: 0 },
-                        { x: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" },
+                        { y: 30, autoAlpha: 0 },
+                        { y: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" },
                         "-=0.3"
                     );
                 }
