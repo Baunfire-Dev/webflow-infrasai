@@ -53,11 +53,13 @@
                         mask: "words",
                         autoSplit: true,
                         onSplit(self) {
+                            el.style.opacity = "1";
+
                             const props = {
                                 y: "100%",
                                 duration: 0.6,
                                 ease: "power2.out",
-                                stagger: 0.03,
+                                stagger: 0.08,
                             };
 
                             if (hasTrigger && triggerEl) {
