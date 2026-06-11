@@ -56,8 +56,8 @@
                             el.style.opacity = "1";
 
                             const props = {
-                                y: '-0.06em',
-                                duration: 1,
+                                y: "100%",
+                                duration: 0.6,
                                 ease: "power2.out",
                                 stagger: 0.03,
                             };
@@ -69,7 +69,7 @@
                                 };
                             }
 
-                            return gsap.fromTo(self.words, { y: "100%" }, props);
+                            return gsap.from(self.words, props);
                         }
                     });
                 });
