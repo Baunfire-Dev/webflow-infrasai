@@ -12,9 +12,54 @@
                 if (!els.length) return;
 
                 els.forEach(self => {
+                    handleEntrance(self);
                     handleVideo(self);
                 });
             }
+
+            const handleEntrance = (self) => {
+                const headTexts = self.querySelector(".hh-head");
+                const videoContainer = self.querySelector(".hh-video");
+                const featuredArticle = self.querySelector(".hh-feature");
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: self,
+                        start: baunfire.anim.start
+                    }
+                });
+
+                if (headTexts) {
+                    SplitText.create(headTexts, {
+                        type: "words",
+                        mask: "words",
+                        onSplit(split) {
+                            headTexts.style.opacity = "1";
+
+                            tl.fromTo(split.words,
+                                { y: "100%" },
+                                { y: "0", duration: 0.6, ease: "power2.out", stagger: 0.03 }
+                            );
+                        }
+                    });
+                }
+
+                if (videoContainer) {
+                    tl.fromTo(videoContainer,
+                        { x: "-50%", autoAlpha: 0 },
+                        { x: "0%", autoAlpha: 1, duration: 0.7, ease: "power2.out" },
+                        "-=0.3"
+                    );
+                }
+
+                if (featuredArticle) {
+                    tl.fromTo(featuredArticle,
+                        { y: 40, autoAlpha: 0 },
+                        { y: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" },
+                        "-=0.3"
+                    );
+                }
+            };
 
             const handleVideo = (self) => {
                 const videoEL = self.querySelector("video");
