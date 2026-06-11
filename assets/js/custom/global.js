@@ -98,6 +98,7 @@
                 val: +num,
                 duration: duration,
                 ease: "linear",
+                once: true,
                 onUpdate: () => {
                     counter.textContent = this.formatNumber(proxy.val, decimals);
                 }
