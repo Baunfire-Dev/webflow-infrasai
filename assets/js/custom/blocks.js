@@ -25,7 +25,7 @@
                     paused: true,
                     scrollTrigger: {
                         trigger: self,
-                        start: baunfire.anim.start,
+                        start: "top top",
                         onEnter: () => tl.delay(0.3).play()
                     }
                 });
