@@ -57,7 +57,7 @@
 
                             const props = {
                                 y: '-0.06em',
-                                duration: 0.6,
+                                duration: 1,
                                 ease: "power2.out",
                                 stagger: 0.03,
                             };
