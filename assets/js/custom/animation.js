@@ -2,6 +2,7 @@
     baunfire.Animation = {
         init() {
             this.handleNav();
+            this.handleTransitions();
         },
 
         handleNav() {
@@ -34,6 +35,45 @@
             document.addEventListener("scroll", updateNavScroll);
             window.addEventListener("load", updateNavScroll);
             updateNavScroll();
+        },
+
+        handleTransitions() {
+            const textReveal = () => {
+                const els = document.querySelectorAll("[data-split-words]");
+
+                els.forEach(el => {
+                    const hasTrigger = el.hasAttribute("data-split-trigger");
+                    const triggerSelector = el.dataset.splitTrigger;
+                    const triggerEl = hasTrigger
+                        ? (triggerSelector ? el.closest(triggerSelector) || el : el)
+                        : null;
+
+                    SplitText.create(el, {
+                        type: "words",
+                        mask: "words",
+                        autoSplit: true,
+                        onSplit(self) {
+                            const props = {
+                                y: "100%",
+                                duration: 0.6,
+                                ease: "power2.out",
+                                stagger: 0.08,
+                            };
+
+                            if (hasTrigger && triggerEl) {
+                                props.scrollTrigger = {
+                                    trigger: triggerEl,
+                                    start: baunfire.anim.start
+                                };
+                            }
+
+                            return gsap.from(self.words, props);
+                        }
+                    });
+                });
+            }
+
+            textReveal();
         }
     };
 
