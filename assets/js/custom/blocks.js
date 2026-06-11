@@ -50,7 +50,7 @@
                     tl.fromTo(certificateLogo,
                         { autoAlpha: 0 },
                         { autoAlpha: 1, duration: 0.6, ease: "power2.out" },
-                        "-=0.3"
+                        "-=0.6"
                     );
                 }
 
