@@ -1,6 +1,7 @@
 (function () {
     baunfire.Blocks = {
         init() {
+            this.socialProofStats();
             this.accordionTextmedia();
         },
 
@@ -73,6 +74,28 @@
                     offset: -100,
                 });
             };
+
+            script();
+        },
+
+        socialProofStats() {
+            const script = () => {
+                const els = document.querySelectorAll("section.social-proof");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleStatCount(self);
+                });
+            }
+
+            const handleAccordion = (self) => {
+                const items = self.querySelectorAll(".sp-stat");
+                if (!items.length) return;
+
+                els.forEach(subSelf => {
+                    baunfire.Global.handleTextCount(subSelf, 1, true, self);
+                });
+            }
 
             script();
         },

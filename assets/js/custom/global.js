@@ -84,6 +84,39 @@
                 card.classList.add('active');
             });
         },
+
+        handleTextCount(el, duration = 0.8, withTrigger = false, parent) {
+            const counter = el.find("[data-amount]");
+            const rawAmount = counter.data("amount").toString();
+            let clean = v => (v + "").replace(/[^\d\.-]/gi, "");
+            let num = clean(rawAmount);
+            let decimals = (num.split(".")[1] || "").length;
+
+            let proxy = { val: parseFloat(clean(counter.text())) || 0 };
+
+            const props = {
+                val: +num,
+                duration: duration,
+                ease: "linear",
+                onUpdate: () => {
+                    counter.text(this.formatNumber(proxy.val, decimals));
+                }
+            }
+
+            if (withTrigger && parent) {
+                props.scrollTrigger = {
+                    trigger: parent,
+                    start: baunfire.anim.start
+                }
+            }
+
+            gsap.to(proxy, props);
+        },
+
+        formatNumber(value, decimals) {
+            let s = (+value).toLocaleString("en-US").split(".");
+            return decimals ? s[0] + "." + ((s[1] || "") + "00000000").substr(0, decimals) : s[0];
+        },
     };
 
     baunfire.addModule(baunfire.Global);
