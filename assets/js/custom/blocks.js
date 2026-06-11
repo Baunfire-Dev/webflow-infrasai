@@ -21,7 +21,7 @@
                 if (!videoEL) return;
 
                 ScrollTrigger.create({
-                    trigger: trigger,
+                    trigger: self,
                     start: "top center",
                     end: "bottom 30%",
                     onEnter: () => videoEL.play(),
