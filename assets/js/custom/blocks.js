@@ -46,7 +46,7 @@
 
                 if (videoContainer) {
                     tl.fromTo(videoContainer,
-                        { x: "-50%", autoAlpha: 0 },
+                        { x: "80%", autoAlpha: 0 },
                         { x: "0%", autoAlpha: 1, duration: 0.7, ease: "power2.out" },
                         "-=0.3"
                     );
