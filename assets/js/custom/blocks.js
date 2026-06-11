@@ -1,7 +1,7 @@
 (function () {
     baunfire.Blocks = {
         init() {
-            this.socialProofStats();
+            this.socialProof();
             this.accordionTextmedia();
         },
 
@@ -78,7 +78,7 @@
             script();
         },
 
-        socialProofStats() {
+        socialProof() {
             const script = () => {
                 const els = document.querySelectorAll("section.social-proof");
                 if (!els.length) return;
@@ -92,7 +92,7 @@
                 const items = self.querySelectorAll(".sp-stat");
                 if (!items.length) return;
 
-                els.forEach(subSelf => {
+                items.forEach(subSelf => {
                     baunfire.Global.handleTextCount(subSelf, 1, true, self);
                 });
             }
