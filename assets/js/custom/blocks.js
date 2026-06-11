@@ -88,7 +88,7 @@
                 });
             }
 
-            const handleAccordion = (self) => {
+            const handleStatCount = (self) => {
                 const items = self.querySelectorAll(".sp-stat");
                 if (!items.length) return;
 
