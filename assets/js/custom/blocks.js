@@ -1,8 +1,37 @@
 (function () {
     baunfire.Blocks = {
         init() {
+            this.heroHomepage();
             this.socialProof();
             this.accordionTextmedia();
+        },
+
+        heroHomepage() {
+            const script = () => {
+                const els = document.querySelectorAll("section.hero-homepage");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleVideo(self);
+                });
+            }
+
+            const handleVideo = (self) => {
+                const videoEL = self.querySelector("video");
+                if (!videoEL) return;
+
+                ScrollTrigger.create({
+                    trigger: trigger,
+                    start: "top center",
+                    end: "bottom 30%",
+                    onEnter: () => videoEL.play(),
+                    onEnterBack: () => videoEL.play(),
+                    onLeave: () => videoEL.pause(),
+                    onLeaveBack: () => videoEL.pause(),
+                });
+            }
+
+            script();
         },
 
         accordionTextmedia() {
