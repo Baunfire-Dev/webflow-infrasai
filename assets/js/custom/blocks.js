@@ -46,9 +46,9 @@
 
                 if (featuredArticle) {
                     tl.fromTo(featuredArticle,
-                        { autoAlpha: 0 },
-                        { autoAlpha: 1, duration: 0.6, ease: "power2.out" },
-                        "<0.3"
+                        { x: 30, autoAlpha: 0 },
+                        { x: 0, autoAlpha: 1, duration: 0.6, ease: "power2.out" },
+                        "-=0.3"
                     );
                 }
             };
