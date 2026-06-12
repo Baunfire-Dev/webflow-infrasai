@@ -3,6 +3,7 @@
         init() {
             this.heroHomepage();
             this.socialProof();
+            this.typeTextReveal();
             this.accordionTextmedia();
         },
 
@@ -83,18 +84,32 @@
 
         typeTextReveal() {
             const script = () => {
-                const els = document.querySelectorAll("section.hero-homepage");
+                const els = document.querySelectorAll("section.type-text-reveal");
                 if (!els.length) return;
 
                 els.forEach(self => {
-                    handleVideo(self);
-                    handleEntrance(self);
+                    handleTextHighlight(self);
                 });
             }
 
-            const handleTextHighlight = (self) => {
-                const mainTitle = self.find("h3");
-                const words = mainTitle.find(".word");
+            const splitWords = (self) => {
+                const paragraph = self.querySelector("p");
+                if (!paragraph) return;
+
+                SplitText.create(paragraph, {
+                    type: "words",
+                    mask: "words",
+                    autoSplit: true,
+                    wordsClass: "word",
+                    onSplit(self) {
+                        el.style.opacity = "1";
+                        handleTextHighlight(self);
+                    }
+                });
+            }
+
+            const handleTextHighlight = (el) => {
+                const words = el.querySelectorAll(".word");
                 if (!words.length) return;
 
                 const mm = gsap.matchMedia();
@@ -107,22 +122,20 @@
 
                     const tl = gsap.timeline({
                         scrollTrigger: {
-                            trigger: mainTitle,
+                            trigger: el,
                             scrub: isDesktop ? 2 : true,
                             start: isDesktop ? "top 80%" : "top 70%",
                             end: isDesktop ? "bottom 70%" : "bottom 70%",
-                            // markers: true
                         },
                     });
 
-                    words.each(function () {
-                        const subSelf = $(this);
 
+                    els.forEach(subSelf => {
                         tl.to(subSelf, {
                             backgroundPositionX: 0,
                             ease: "none",
                         });
-                    })
+                    });
 
                     return () => { }
                 });
