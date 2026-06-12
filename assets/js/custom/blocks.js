@@ -93,7 +93,7 @@
             }
 
             const splitWords = (self) => {
-                const paragraph = self.querySelector("p");
+                const paragraph = self.querySelector(".ttr-text");
                 if (!paragraph) return;
 
                 SplitText.create(paragraph, {
@@ -103,7 +103,7 @@
                     wordsClass: "word",
                     onSplit(self) {
                         paragraph.style.opacity = "1";
-                        handleTextHighlight(self);
+                        handleTextHighlight(paragraph);
                     }
                 });
             }
