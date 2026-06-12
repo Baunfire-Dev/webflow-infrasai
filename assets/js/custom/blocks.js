@@ -102,7 +102,7 @@
                     autoSplit: true,
                     wordsClass: "word",
                     onSplit(self) {
-                        el.style.opacity = "1";
+                        paragraph.style.opacity = "1";
                         handleTextHighlight(self);
                     }
                 });
