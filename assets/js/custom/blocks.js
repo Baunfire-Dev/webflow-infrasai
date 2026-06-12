@@ -115,17 +115,23 @@
 
                 const isDesktop = window.matchMedia("(min-width: 992px)").matches;
 
-                return gsap.timeline({
+                const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: el,
                         scrub: isDesktop ? 2 : true,
                         start: isDesktop ? "top 80%" : "top 70%",
                         end: "bottom 70%",
                     },
-                }).to(words, {
-                    backgroundPositionX: 0,
-                    ease: "none",
                 });
+
+                words.forEach(word => {
+                    tl.to(word, {
+                        backgroundPositionX: 0,
+                        ease: "none",
+                    });
+                });
+
+                return tl;
             }
 
             script();
