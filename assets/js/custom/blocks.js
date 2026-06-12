@@ -119,7 +119,7 @@
                         trigger: el,
                         scrub: isDesktop ? 2 : true,
                         start: isDesktop ? "top 80%" : "top 70%",
-                        end: "bottom 70%",
+                        end: "bottom 60%",
                     },
                 });
 
