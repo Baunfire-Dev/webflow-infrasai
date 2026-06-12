@@ -88,7 +88,7 @@
                 if (!els.length) return;
 
                 els.forEach(self => {
-                    handleTextHighlight(self);
+                    splitWords(self);
                 });
             }
 
