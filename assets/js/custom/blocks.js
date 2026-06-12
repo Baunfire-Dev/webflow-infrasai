@@ -100,7 +100,6 @@
 
                 SplitText.create(paragraph, {
                     type: "words",
-                    mask: "words",
                     autoSplit: true,
                     wordsClass: "word",
                     onSplit(split) {
