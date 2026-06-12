@@ -96,48 +96,35 @@
                 const paragraph = self.querySelector(".ttr-text");
                 if (!paragraph) return;
 
+                paragraph.style.opacity = "0";
+
                 SplitText.create(paragraph, {
                     type: "words",
                     mask: "words",
                     autoSplit: true,
                     wordsClass: "word",
-                    onSplit(self) {
+                    onSplit(split) {
                         paragraph.style.opacity = "1";
-                        handleTextHighlight(paragraph);
+                        return handleTextHighlight(paragraph, split.words);
                     }
                 });
             }
 
-            const handleTextHighlight = (el) => {
-                const words = el.querySelectorAll(".word");
+            const handleTextHighlight = (el, words) => {
                 if (!words.length) return;
 
-                const mm = gsap.matchMedia();
+                const isDesktop = window.matchMedia("(min-width: 992px)").matches;
 
-                mm.add({
-                    isDesktop: `(min-width: 992px)`,
-                    isMobile: `(max-width: 991.98px)`,
-                }, (context) => {
-                    let { isDesktop, isMobile } = context.conditions;
-
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: el,
-                            scrub: isDesktop ? 2 : true,
-                            start: isDesktop ? "top 80%" : "top 70%",
-                            end: isDesktop ? "bottom 70%" : "bottom 70%",
-                        },
-                    });
-
-
-                    els.forEach(subSelf => {
-                        tl.to(subSelf, {
-                            backgroundPositionX: 0,
-                            ease: "none",
-                        });
-                    });
-
-                    return () => { }
+                return gsap.timeline({
+                    scrollTrigger: {
+                        trigger: el,
+                        scrub: isDesktop ? 2 : true,
+                        start: isDesktop ? "top 80%" : "top 70%",
+                        end: "bottom 70%",
+                    },
+                }).to(words, {
+                    backgroundPositionX: 0,
+                    ease: "none",
                 });
             }
 
