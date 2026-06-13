@@ -66,11 +66,6 @@ header {
 							&-dd {
 								@apply h-auto;
 							}
-
-							&-dd-inner {
-								@apply transition-all duration-500 ease-out opacity-100;
-								transform: translateX(0);
-							}
 						}
 					}
 				}
@@ -130,8 +125,7 @@ header {
 			}
 
 			&-dd-inner {
-				@apply w-full opacity-0;
-				transform: translateX(0.75rem);
+				@apply w-full;
 			}
 
 			&-dd-items {
