@@ -39,40 +39,43 @@ header {
 			transform: translateY(0.625rem);
 		}
 
-        &-panel,
+		&-panel,
 		&-panel-inner,
 		&-panel-outer {
 			@apply xl:contents;
 		}
+	}
 
-		&-panel {
-			@media not all and (min-width: 62rem) {
-				@apply pointer-events-none invisible absolute top-0 w-full h-[100svh] flex flex-col left-0 pt-[2.5rem];
+	@media not all and (min-width: 62rem) {
+		.nav {
+			&-items {
+				@apply flex-col gap-0;
+			}
+
+			&-panel {
+				@apply pointer-events-none invisible absolute top-0 w-full h-[100svh] flex flex-col left-0;
+                padding-top: clamp(2.5rem,2.0657vw + 2.0158rem,3.875rem);
 				clip-path: inset(0% 0% 100% 0%);
 			}
-		}
 
-		&-panel-outer {
-			@media not all and (min-width: 62rem) {
-				@apply h-full bg-white overflow-clip;
+			&-panel-outer {
+				@apply h-full overflow-clip;
+                background: var(--_colors---black);
 			}
-		}
 
-		&-panel-inner {
-			@media not all and (min-width: 62rem) {
+			&-panel-inner {
 				@apply h-full flex flex-col translate-y-[-2.5rem] opacity-0;
-				@apply pt-[1.25rem] pb-[12.5rem] ~px-[1rem]/[4rem];
+				@apply pt-[1.25rem] pb-[12.5rem];
 				@apply overflow-x-clip overflow-y-auto;
+				padding-right: var(--global--container-padding);
+				padding-left: var(--global--container-padding);
 			}
-		}
 
-		&-panel,
-		&-panel-inner {
-			@media not all and (min-width: 62rem) {
+			&-panel,
+			&-panel-inner {
 				@apply transition-all duration-500 ease-out;
 			}
 		}
-
 	}
 
 	&:has(.nav-item.open),
