@@ -43,7 +43,8 @@ header {
 	@media not all and (min-width: 62rem) {
 		.nav {
 			&-item {
-				@apply h-[3rem] border-b border-solid w-full;
+				@apply h-[3rem] border-solid w-full;
+                border-bottom-width: 1px;
                 border-color: var(--_colors---white-20);
 			}
 
