@@ -90,7 +90,7 @@ header {
 			&-burger {
 				path {
 					&:nth-child(1) {
-						transform: rotate(45deg) translate(0.1875rem, -0.125rem);
+						transform: rotate(45deg) translate(0.3125rem, -0.75rem);
 					}
 
 					&:nth-child(2) {
@@ -98,8 +98,7 @@ header {
 					}
 
 					&:nth-child(3) {
-						transform: rotate(-45deg)
-							translate(-0.4375rem, -0.125rem);
+						transform: rotate(-45deg) translate(-0.75rem, 0.625rem);
 					}
 				}
 			}
