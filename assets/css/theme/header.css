@@ -38,12 +38,6 @@ header {
 			@apply opacity-0;
 			transform: translateY(0.625rem);
 		}
-
-		&-panel,
-		&-panel-inner,
-		&-panel-outer {
-			@apply xl:contents;
-		}
 	}
 
 	@media not all and (min-width: 62rem) {
