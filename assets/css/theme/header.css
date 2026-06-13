@@ -40,15 +40,19 @@ header {
 				border-width: 0px 0px 1px 0px;
 				border-color: var(--_colors---white-20);
 
-                &:not(.is-parent) {
-                    @apply h-[3rem];
-                }
+				&:not(.is-parent) {
+					@apply h-[3rem];
+				}
 
-                &.is-parent {
-                    .nav-item-inner {
-                        @apply h-[3rem];
+				&.is-parent {
+					.nav-item-inner {
+						@apply h-[3rem];
+					}
+
+                    .glass-card {
+                        @apply hidden;
                     }
-                }
+				}
 			}
 
 			&-actions {
@@ -90,8 +94,17 @@ header {
 				@apply transition-all duration-500 ease-out;
 			}
 
-            &-dd {
+			&-dd {
+                @apply relative inset-0 w-full visible;
+				transform: none;
+			}
 
+            &-dd-inner {
+                @apply w-full;
+			}
+
+            &-dd-items {
+                @apply w-full px-0 pt-[1rem] pb-[2rem];
             }
 		}
 	}
