@@ -1,7 +1,7 @@
 section.accordion-text-media {
 	.atm {
 		&-inner {
-			&[data-wf--accordion-text-media-inner--variant="black"] {
+			&[data-wf--accordion-text-media-inner--variant="v2"] {
 				.atm-items-wrapper {
 					@apply flex-row-reverse;
 				}
