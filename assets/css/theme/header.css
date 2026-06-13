@@ -42,33 +42,38 @@ header {
 
 	@media not all and (min-width: 62rem) {
 		.nav {
+			&-item {
+				@apply h-[3rem] border-b border-solid;
+                border-color: var(--_colors---white-20);
+			}
+
 			&-items {
 				@apply flex-col gap-0;
 			}
 
-            &-actions {
-                @apply flex-col gap-[2.5rem];
+			&-actions {
+				@apply flex-col gap-[2.5rem];
 
-                .g-btn,
-                .g-btn-inner {
-                    @apply w-full;
-                }
-            }
+				.g-btn,
+				.g-btn-inner {
+					@apply w-full;
+				}
+			}
 
 			&-panel {
 				@apply pointer-events-none invisible absolute top-0 w-full h-[100svh] flex flex-col left-0;
-                padding-top: clamp(2.5rem,2.0657vw + 2.0158rem,3.875rem);
+				padding-top: clamp(2.5rem, 2.0657vw + 2.0158rem, 3.875rem);
 				clip-path: inset(0% 0% 100% 0%);
 			}
 
 			&-panel-outer {
 				@apply h-full overflow-clip block;
-                background: var(--_colors---black);
+				background: var(--_colors---black);
 			}
 
 			&-panel-inner {
 				@apply h-full flex flex-col opacity-0;
-                transform: translateY(-2.5rem);
+				transform: translateY(-2.5rem);
 				@apply pt-[1.25rem] pb-[12.5rem];
 				@apply overflow-x-clip overflow-y-auto;
 				padding-right: var(--global--container-padding);
@@ -117,7 +122,7 @@ header {
 			&-panel-inner {
 				@apply opacity-100;
 				@apply transition-all duration-[0.4s] ease-out delay-100;
-                transform: translateY(0);
+				transform: translateY(0);
 			}
 		}
 	}
