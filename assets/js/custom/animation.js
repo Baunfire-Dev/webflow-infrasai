@@ -13,6 +13,9 @@
             let isScrolled = false;
             let scrollDirection = null;
 
+            const parents = nav.querySelector(".nav-item.is-parent");
+            const allNavItems = nav.querySelector(".nav-item");
+
             const updateNavScroll = () => {
                 const currentScrollY = window.scrollY;
                 const direction = currentScrollY > lastScrollY ? "down" : currentScrollY < lastScrollY ? "up" : null;
@@ -31,6 +34,134 @@
 
                 lastScrollY = currentScrollY;
             };
+
+            const desktopDDPanel = () => {
+                let activeDropdown = null;
+                let hideTimeout = null;
+                let timeoutDuration = 300;
+
+                const isBigScreen = () => window.matchMedia("(min-width: 992px)").matches;
+
+                parents.forEach(function (el) {
+                    el.addEventListener('mouseenter', function () {
+                        if (!isBigScreen()) return;
+
+                        clearTimeout(hideTimeout);
+
+                        if (activeDropdown && activeDropdown !== el) {
+                            activeDropdown.classList.remove('open');
+                        }
+
+                        el.classList.add('open');
+                        activeDropdown = el;
+                    });
+
+                    el.addEventListener('mouseleave', function () {
+                        if (!isBigScreen()) return;
+
+                        hideTimeout = setTimeout(() => {
+                            el.classList.remove('open');
+                            if (activeDropdown === el) activeDropdown = null;
+                        }, timeoutDuration);
+                    });
+                });
+
+                allNavItems.forEach(function (el) {
+                    if (el.classList.contains('parent')) return;
+
+                    el.addEventListener('mouseenter', function () {
+                        if (!isBigScreen()) return;
+                        clearTimeout(hideTimeout);
+
+                        if (activeDropdown) {
+                            activeDropdown.classList.remove('open');
+                            activeDropdown = null;
+                        }
+                    });
+                });
+            };
+
+            const mobileDDPanel = () => {
+                const navPanel = nav.querySelector(".nav-panel-inner");
+
+                parents.forEach(function (subEl) {
+                    const inner = subEl.querySelector(".nav-item-inner");
+
+                    inner.addEventListener('click', function () {
+                        if (!window.matchMedia("(max-width: 992px)").matches) return;
+
+                        if (subEl.classList.contains("open")) {
+                            subEl.classList.remove("open");
+                        } else {
+                            parents.forEach(p => p.classList.remove("open"));
+                            subEl.classList.add("open");
+
+                            const subElTop = subEl.getBoundingClientRect().top + navPanel.scrollTop - navPanel.getBoundingClientRect().top - 40;
+                            gsap.to(navPanel, {
+                                duration: 0.6,
+                                scrollTo: { y: subElTop, autoKill: true },
+                                ease: "power2.inOut",
+                                overwrite: true
+                            });
+                        }
+                    });
+                });
+            };
+
+            const burgerEvent = () => {
+                const burger = nav.querySelector(".nav-burger");
+
+                let mm = gsap.matchMedia();
+
+                mm.add(
+                    {
+                        isDesktop: `(min-width: 1200px)`,
+                        isMobile: `(max-width: 1199.98px)`,
+                    },
+                    (context) => {
+                        let { isDesktop, isMobile } = context.conditions;
+
+                        if (isDesktop || isMobile) {
+                            parents.forEach(p => p.classList.remove("open"));
+                        }
+
+                        if (isDesktop) {
+                            nav.classList.remove("mob-active");
+                            baunfire.Global.siteScrolling();
+
+                            burger.removeEventListener("click", burgerClickHandler);
+                        }
+
+                        if (isMobile) {
+                            burger.addEventListener("click", burgerClickHandler);
+                        }
+
+                        return () => { };
+                    }
+                );
+            };
+
+            const burgerClickHandler = () => {
+                if (!nav.classList.contains("mob-active")) {
+                    showMobileNav();
+                } else {
+                    hideMobileNav();
+                }
+            };
+
+            const showMobileNav = () => {
+                nav.classList.add("mob-active");
+                baunfire.Global.siteScrolling(false);
+            };
+
+            const hideMobileNav = () => {
+                nav.classList.remove("mob-active");
+                baunfire.Global.siteScrolling();
+                parents.forEach(p => p.classList.remove("open"));
+            };
+
+            burgerEvent();
+            desktopDDPanel();
 
             document.addEventListener("scroll", updateNavScroll);
             window.addEventListener("load", updateNavScroll);
