@@ -44,7 +44,7 @@ header {
 		.nav {
 			&-item {
 				@apply h-[3rem] border-solid w-full;
-                border-bottom-width: 1px;
+                border-width: 0px 0px 1px 0px;
                 border-color: var(--_colors---white-20);
 			}
 
