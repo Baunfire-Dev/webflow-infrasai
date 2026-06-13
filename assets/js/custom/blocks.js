@@ -261,8 +261,8 @@
                             speed: 600,
                         },
                     });
-
-                    slider.on('mounted', () => {
+                    
+                    slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
                         prevBtn?.addEventListener('click', () => slider.go('<'));
                         nextBtn?.addEventListener('click', () => slider.go('>'));
