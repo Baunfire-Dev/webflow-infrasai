@@ -246,7 +246,7 @@
                 const splide = self.querySelector(".splide");
                 if (!splide) return;
 
-                this.importSplideScript(() => {
+                baunfire.Global.importSplideScript(() => {
                     new Splide(splide, {
                         type: 'loop',
                         perPage: 1,
