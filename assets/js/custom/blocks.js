@@ -255,6 +255,8 @@
                         gap: '1rem',
                         arrows: false,
                         autoHeight: true,
+                        speed: 600,
+                        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
                     });
 
                     slider.on('mounted', () => {
