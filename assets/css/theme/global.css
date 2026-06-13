@@ -1,6 +1,10 @@
 .splide {
 	.splide__pagination {
 		@apply flex gap-[0.625rem] p-[0.625rem] bottom-[-4.625rem];
+
+		@media not all and (min-width: 48rem) {
+			@apply bottom-[-5rem] p-0 h-[3rem] w-fit items-center;
+		}
 	}
 
 	.splide__pagination__page {
