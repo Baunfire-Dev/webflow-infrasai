@@ -68,7 +68,7 @@ header {
 			}
 
 			&-panel-outer {
-				@apply h-full overflow-clip;
+				@apply h-full overflow-clip block;
                 background: var(--_colors---black);
 			}
 
