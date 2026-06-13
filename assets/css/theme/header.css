@@ -54,6 +54,11 @@ header {
 
             &-actions {
                 @apply flex-col gap-[2.5rem];
+
+                .g-btn,
+                .g-btn-inner {
+                    @apply w-full;
+                }
             }
 
 			&-panel {
