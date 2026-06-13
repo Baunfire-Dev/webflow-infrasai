@@ -1,12 +1,24 @@
 .glass-card {
-    &:not(.active) {
-        @apply hidden;
-    }
+	&:not(.active) {
+		@apply hidden;
+	}
 
 	&.active {
 		@apply border-none overflow-hidden;
 		backdrop-filter: blur(24px);
 		-webkit-backdrop-filter: blur(24px);
+	}
+
+	&[data-wf--glass--variant="v2"] {
+		.rim,
+        .inner-glow,
+        .scanline {
+			@apply rounded-[0.25rem];
+		}
+
+		.top-gloss {
+			border-radius: 0.25rem 0.25rem 60% 60%;
+		}
 	}
 }
 
@@ -16,11 +28,11 @@
 .left-edge,
 .right-edge,
 .scanline {
-    @apply absolute inset-0 pointer-events-none;
+	@apply absolute inset-0 pointer-events-none;
 }
 
 .rim {
-    @apply rounded-[0.5rem] bg-transparent;
+	@apply rounded-[0.5rem] bg-transparent;
 	box-shadow:
 		inset 0 0 0 0.5px rgba(255, 255, 255, 0.18),
 		inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
@@ -36,8 +48,8 @@
 }
 
 .top-gloss {
-    @apply top-0 left-0 right-0 h-[45%];
-    @apply inset-auto absolute;
+	@apply top-0 left-0 right-0 h-[45%];
+	@apply inset-auto absolute;
 	border-radius: 0.5rem 0.5rem 60% 60%;
 	background: linear-gradient(
 		180deg,
@@ -48,8 +60,8 @@
 }
 
 .left-edge {
-    @apply top-[10%] left-0 bottom-[10%] right-auto; 
-    @apply w-[1px] absolute;
+	@apply top-[10%] left-0 bottom-[10%] right-auto;
+	@apply w-[1px] absolute;
 	background: linear-gradient(
 		180deg,
 		transparent 0%,
@@ -60,8 +72,8 @@
 }
 
 .right-edge {
-    @apply top-[10%] left-auto bottom-[10%] right-0; 
-    @apply w-[1px] absolute;
+	@apply top-[10%] left-auto bottom-[10%] right-0;
+	@apply w-[1px] absolute;
 	background: linear-gradient(
 		180deg,
 		transparent 0%,
@@ -71,7 +83,7 @@
 }
 
 .scanline {
-    @apply rounded-[0.5rem];
+	@apply rounded-[0.5rem];
 	background: repeating-linear-gradient(
 		180deg,
 		transparent 0px,
