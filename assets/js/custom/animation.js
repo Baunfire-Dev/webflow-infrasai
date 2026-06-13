@@ -115,8 +115,8 @@
 
                 mm.add(
                     {
-                        isDesktop: `(min-width: 1200px)`,
-                        isMobile: `(max-width: 1199.98px)`,
+                        isDesktop: `(min-width: 992px)`,
+                        isMobile: `(max-width: 991.98px)`,
                     },
                     (context) => {
                         let { isDesktop, isMobile } = context.conditions;
