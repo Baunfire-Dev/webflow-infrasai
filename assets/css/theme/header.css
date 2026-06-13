@@ -6,7 +6,7 @@ header {
 			svg {
 				@apply w-[1rem] h-auto;
 
-				rect {
+				path {
 					@apply transition-all ease-out duration-500;
 				}
 			}
@@ -93,7 +93,7 @@ header {
 	&.mob-active {
 		.nav {
 			&-burger {
-				rect {
+				path {
 					&:nth-child(1) {
 						transform: rotate(45deg) translate(0.1875rem, -0.125rem);
 					}
