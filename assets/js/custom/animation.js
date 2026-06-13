@@ -138,8 +138,12 @@
                     (context) => {
                         let { isDesktop, isMobile } = context.conditions;
 
-                        if (isDesktop || isMobile) {
+                        if (isDesktop) {
                             parents.forEach(p => p.classList.remove("open"));
+                        }
+
+                        if (isMobile) {
+                            parents.forEach(p => p.classList.remove("mob-open"));
                         }
 
                         if (isDesktop) {
