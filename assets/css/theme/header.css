@@ -64,7 +64,7 @@ header {
 			&-panel-inner {
 				@apply flex flex-col opacity-0;
 				transform: translateY(-2.5rem);
-				@apply pt-[0.75rem] pb-[12.5rem];
+				@apply pt-[0.75rem] pb-[2rem];
 				@apply overflow-x-clip overflow-y-auto;
 				padding-right: var(--global--container-padding);
 				padding-left: var(--global--container-padding);
