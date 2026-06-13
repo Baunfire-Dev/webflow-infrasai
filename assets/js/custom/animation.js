@@ -57,20 +57,7 @@
                         el.classList.add('open');
                         activeDropdown = el;
 
-                        gsap.fromTo(ddItems,
-                            {
-                                x: 16,
-                                autoAlpha: 0
-                            },
-                            {
-                                autoAlpha: 1,
-                                x: 0,
-                                duration: 0.4,
-                                ease: "power2.out",
-                                overwrite: true,
-                                stagger: { each: 0.08 }
-                            } 
-                        );
+                        animateDDItems(ddItems);
                     });
 
                     el.addEventListener('mouseleave', function () {
@@ -101,28 +88,49 @@
             const mobileDDPanel = () => {
                 const navPanel = nav.querySelector(".nav-panel-inner");
 
-                parents.forEach(function (subEl) {
-                    const inner = subEl.querySelector(".nav-item-inner");
+                parents.forEach(function (el) {
+                    const inner = el.querySelector(".nav-item-inner");
+                    const ddItems = el.querySelectorAll(".nav-dd-item");
 
                     inner.addEventListener('click', function () {
                         if (!window.matchMedia("(max-width: 992px)").matches) return;
 
-                        if (subEl.classList.contains("mob-open")) {
-                            subEl.classList.remove("mob-open");
+                        if (el.classList.contains("mob-open")) {
+                            el.classList.remove("mob-open");
                         } else {
                             parents.forEach(p => p.classList.remove("mob-open"));
-                            subEl.classList.add("mob-open");
+                            el.classList.add("mob-open");
 
-                            const subElTop = subEl.getBoundingClientRect().top + navPanel.scrollTop - navPanel.getBoundingClientRect().top - 40;
+                            const elTop = el.getBoundingClientRect().top + navPanel.scrollTop - navPanel.getBoundingClientRect().top - 40;
+
                             gsap.to(navPanel, {
                                 duration: 0.6,
-                                scrollTo: { y: subElTop, autoKill: true },
+                                scrollTo: { y: elTop, autoKill: true },
                                 ease: "power2.inOut",
                                 overwrite: true
                             });
+
+                            animateDDItems(ddItems);
                         }
                     });
                 });
+            };
+
+            const animateDDItems = (els) => {
+                gsap.fromTo(els,
+                    {
+                        x: 16,
+                        autoAlpha: 0
+                    },
+                    {
+                        autoAlpha: 1,
+                        x: 0,
+                        duration: 0.4,
+                        ease: "power2.out",
+                        overwrite: true,
+                        stagger: { each: 0.08 }
+                    }
+                );
             };
 
             const burgerEvent = () => {
