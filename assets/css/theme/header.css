@@ -52,6 +52,10 @@ header {
 				@apply flex-col gap-0;
 			}
 
+            &-actions {
+                @apply flex-col gap-[2.5rem];
+            }
+
 			&-panel {
 				@apply pointer-events-none invisible absolute top-0 w-full h-[100svh] flex flex-col left-0;
                 padding-top: clamp(2.5rem,2.0657vw + 2.0158rem,3.875rem);
