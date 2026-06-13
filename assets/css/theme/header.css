@@ -49,22 +49,38 @@ header {
 						@apply h-[3rem] items-center;
 					}
 
-                    .glass-card {
-                        @apply hidden;
-                    }
+					.glass-card {
+						@apply hidden;
+					}
 
-                    &.mob-open {
-                        .nav {
-                            &-dd {
-                                @apply h-auto;
-                            }
+					&.mob-open {
+						.nav {
+							&-item-icon {
+								svg {
+									path:first-of-type {
+										@apply opacity-0;
+									}
+								}
+							}
 
-                            &-dd-inner {
-                                @apply transition-all duration-300 ease-out opacity-100;
-                                transform: translateY(0);
-                            }
-                        }
-                    }
+							&-dd {
+								@apply h-auto;
+							}
+
+							&-dd-inner {
+								@apply transition-all duration-300 ease-out opacity-100;
+								transform: translateY(0);
+							}
+						}
+					}
+				}
+			}
+
+			&-item-icon {
+				svg {
+					path {
+						@apply transition-opacity duration-300 ease-out;
+					}
 				}
 			}
 
@@ -108,18 +124,18 @@ header {
 			}
 
 			&-dd {
-                @apply relative inset-0 w-full visible;
-                @apply h-0 overflow-hidden;
+				@apply relative inset-0 w-full visible;
+				@apply h-0 overflow-hidden;
 			}
 
-            &-dd-inner {
-                @apply w-full opacity-0;
+			&-dd-inner {
+				@apply w-full opacity-0;
 				transform: translateY(0.75rem);
 			}
 
-            &-dd-items {
-                @apply w-full px-0 pt-[1rem] pb-[2rem];
-            }
+			&-dd-items {
+				@apply w-full px-0 pt-[1rem] pb-[2rem];
+			}
 		}
 	}
 
@@ -159,8 +175,6 @@ header {
 				@apply transition-all duration-[0.4s] ease-out delay-100;
 				transform: translateY(0);
 			}
-
-            
 		}
 	}
 
