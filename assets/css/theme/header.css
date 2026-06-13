@@ -1,6 +1,33 @@
 header {
 	nav {
 		@apply transition-all duration-500 ease-out;
+
+		&-dd {
+			@apply flex invisible;
+		}
+
+		&-dd-inner {
+			@apply opacity-0;
+			transform: translateY(0.625rem);
+		}
+
+		&-item {
+			&.is-parent {
+				&.open {
+					.nav {
+						&-dd {
+							@apply visible;
+						}
+
+						&-dd-inner {
+                            @apply opacity-100;
+							transition: all 0.3s ease;
+							transform: translateY(0);
+						}
+					}
+				}
+			}
+		}
 	}
 
 	&:has(.nav-item.open),
@@ -16,7 +43,7 @@ header {
 
 		nav {
 			@apply pointer-events-none;
-            transform: translateY(-100%);
+			transform: translateY(-100%);
 		}
 	}
 }
