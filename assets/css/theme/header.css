@@ -29,6 +29,22 @@ header {
 		}
 	}
 
+	@media (min-width: 62rem) {
+		.nav {
+			&-item {
+				&:hover {
+					.nav-item-text {
+						color: var(--_colors---green);
+					}
+				}
+			}
+
+			&-item-text {
+				@apply transition-colors duration-300 ease-out;
+			}
+		}
+	}
+
 	@media not all and (min-width: 62rem) {
 		.nav {
 			&-items {
@@ -121,7 +137,7 @@ header {
 			&-dd {
 				@apply relative inset-0 w-full visible;
 				@apply h-0 overflow-hidden;
-                transform: none;
+				transform: none;
 			}
 
 			&-dd-inner {
