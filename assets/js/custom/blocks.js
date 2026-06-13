@@ -257,6 +257,9 @@
                         autoHeight: true,
                         speed: 600,
                         easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                        reducedMotion: {
+                            speed: 600, // override Splide's default of 0 for reduced motion
+                        },
                     });
 
                     slider.on('mounted', () => {
