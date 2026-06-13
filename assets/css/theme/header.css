@@ -4,7 +4,7 @@ header {
 
 		&-burger {
 			svg {
-				@apply w-[1rem] h-auto;
+				@apply w-[1.5rem] h-auto;
 
 				path {
 					@apply transition-all ease-out duration-300;
