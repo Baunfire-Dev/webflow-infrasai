@@ -2,6 +2,7 @@
 @import "tailwindcss/utilities";
 
 @import "header";
+@import "footer";
 @import "glass";
 @import "global";
 @import-glob "../blocks/*.css";
