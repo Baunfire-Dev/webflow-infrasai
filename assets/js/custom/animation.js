@@ -67,7 +67,7 @@
                                 x: 0,
                                 duration: 0.4,
                                 ease: "power2.out",
-                                stagger: { each: 0.014 }
+                                stagger: { each: 0.14 }
                             } 
                         );
                     });
