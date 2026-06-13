@@ -41,7 +41,7 @@ header {
 	&.nav-scrolling-down {
 		@apply pointer-events-none;
 
-		nav {
+		.nav {
 			@apply pointer-events-none;
 			transform: translateY(-100%);
 		}
