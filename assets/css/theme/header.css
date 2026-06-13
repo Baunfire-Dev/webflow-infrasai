@@ -57,18 +57,23 @@ header {
 			}
 
 			&-panel-outer {
-				@apply h-full overflow-clip block;
+				@apply overflow-clip block;
 				background: var(--_colors---black);
 			}
 
 			&-panel-inner {
-				@apply h-full flex flex-col opacity-0;
+				@apply flex flex-col opacity-0;
 				transform: translateY(-2.5rem);
 				@apply pt-[0.75rem] pb-[12.5rem];
 				@apply overflow-x-clip overflow-y-auto;
 				padding-right: var(--global--container-padding);
 				padding-left: var(--global--container-padding);
 			}
+
+            &-panel-outer,
+            &-panel-inner {
+                @apply h-auto max-h-full;
+            }
 
 			&-panel,
 			&-panel-inner {
