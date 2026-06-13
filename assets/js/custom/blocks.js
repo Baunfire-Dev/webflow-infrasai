@@ -244,17 +244,22 @@
 
             const handleCarousel = (self) => {
                 const splide = self.querySelector(".splide");
+                const prevBtn = self.querySelector(".tc-arrow.prev");
+                const nextBtn = self.querySelector(".tc-arrow.next");
                 if (!splide) return;
 
-                baunfire.Global.importSplideScript(() => {
+                this.importSplideScript(() => {
                     const slider = new Splide(splide, {
                         type: 'loop',
                         perPage: 1,
                         gap: '1rem',
+                        arrows: false,
+                        autoHeight: true,
                     });
 
                     slider.on('mounted', () => {
-                        baunfire.Global.screenSizeChange();
+                        prevBtn?.addEventListener('click', () => slider.go('<'));
+                        nextBtn?.addEventListener('click', () => slider.go('>'));
                     });
 
                     slider.mount();
