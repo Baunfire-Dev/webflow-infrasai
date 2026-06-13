@@ -5,6 +5,7 @@
             this.socialProof();
             this.typeTextReveal();
             this.accordionTextmedia();
+            this.testimonialCarousel();
         },
 
         heroHomepage() {
@@ -230,6 +231,30 @@
 
             script();
         },
+
+        testimonialCarousel() {
+            const script = () => {
+                const els = document.querySelectorAll("section.testimonial-carousel");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleCarousel(self);
+                });
+            }
+
+            const handleCarousel = (self) => {
+                const splide = self.querySelector(".splide");
+                if (!splide) return;
+
+                this.importSplideScript(() => {
+                    new Splide(splide, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                    }).mount();
+                });
+            }
+        }
     };
 
     baunfire.addModule(baunfire.Blocks);

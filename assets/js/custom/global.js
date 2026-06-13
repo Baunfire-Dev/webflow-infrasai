@@ -1,5 +1,8 @@
-(function () {
+(function () {        
+    const templateURL = 'https://baunfire-dev.github.io/webflow-infrasai';
+    
     baunfire.Global = {
+
         init() {
             this.generateGlass();
         },
@@ -69,6 +72,35 @@
             } else {
                 console.log(`%c${label} %c ${message}`, style1, style2);
             }
+        },
+
+        importSplideScript(callback) {
+            if (typeof Splide !== 'undefined') {
+                callback?.();
+                return;
+            }
+
+            this.fancyLog('Loading Splide...');
+
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = `${templateURL}/assets/css/external/splide.min.css`;
+            document.head.appendChild(link);
+
+            const script = document.createElement('script');
+            script.src = `${templateURL}/assets/js/external/splide.min.js`;
+            script.defer = true;
+
+            script.onload = () => {
+                this.fancyLog('Splide loaded.');
+                callback?.();
+            };
+
+            script.onerror = () => {
+                console.error('Failed to load Splide script.');
+            };
+
+            document.body.appendChild(script);
         },
 
         generateGlass() {
