@@ -59,7 +59,7 @@
 
                         gsap.fromTo(ddItems,
                             {
-                                x: 12,
+                                x: 16,
                                 autoAlpha: 0
                             },
                             {
@@ -67,7 +67,8 @@
                                 x: 0,
                                 duration: 0.4,
                                 ease: "power2.out",
-                                stagger: { each: 0.14 }
+                                overwrite: true,
+                                stagger: { each: 0.08 }
                             } 
                         );
                     });
