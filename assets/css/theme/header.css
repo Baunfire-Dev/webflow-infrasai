@@ -36,13 +36,19 @@ header {
 			}
 
 			&-item {
-				@apply h-[3rem] border-solid w-full;
+				@apply border-solid w-full;
 				border-width: 0px 0px 1px 0px;
 				border-color: var(--_colors---white-20);
-			}
 
-			&-item-inner {
-				@apply w-full;
+                &:not(.is-parent) {
+                    @apply h-[3rem];
+                }
+
+                &.is-parent {
+                    .nav-item-inner {
+                        @apply h-[3rem];
+                    }
+                }
 			}
 
 			&-actions {
@@ -83,6 +89,10 @@ header {
 			&-panel-inner {
 				@apply transition-all duration-500 ease-out;
 			}
+
+            &-dd {
+
+            }
 		}
 	}
 
