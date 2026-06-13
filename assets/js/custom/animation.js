@@ -43,6 +43,8 @@
                 const isBigScreen = () => window.matchMedia("(min-width: 992px)").matches;
 
                 parents.forEach(function (el) {
+                    const ddItems = el.querySelectorAll(".nav-dd-item");
+
                     el.addEventListener('mouseenter', function () {
                         if (!isBigScreen()) return;
 
@@ -54,6 +56,20 @@
 
                         el.classList.add('open');
                         activeDropdown = el;
+
+                        gsap.fromTo(ddItems,
+                            {
+                                x: 12,
+                                autoAlpha: 0
+                            },
+                            {
+                                autoAlpha: 1,
+                                x: 0,
+                                duration: 0.4,
+                                ease: "power2.out",
+                                stagger: { each: 0.014 }
+                            } 
+                        );
                     });
 
                     el.addEventListener('mouseleave', function () {
