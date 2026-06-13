@@ -107,11 +107,11 @@
                     inner.addEventListener('click', function () {
                         if (!window.matchMedia("(max-width: 992px)").matches) return;
 
-                        if (subEl.classList.contains("open")) {
-                            subEl.classList.remove("open");
+                        if (subEl.classList.contains("mob-open")) {
+                            subEl.classList.remove("mob-open");
                         } else {
-                            parents.forEach(p => p.classList.remove("open"));
-                            subEl.classList.add("open");
+                            parents.forEach(p => p.classList.remove("mob-open"));
+                            subEl.classList.add("mob-open");
 
                             const subElTop = subEl.getBoundingClientRect().top + navPanel.scrollTop - navPanel.getBoundingClientRect().top - 40;
                             gsap.to(navPanel, {
@@ -179,6 +179,7 @@
 
             burgerEvent();
             desktopDDPanel();
+            mobileDDPanel();
 
             document.addEventListener("scroll", updateNavScroll);
             window.addEventListener("load", updateNavScroll);

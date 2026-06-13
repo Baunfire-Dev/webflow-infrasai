@@ -46,7 +46,7 @@ header {
 
 				&.is-parent {
 					.nav-item-inner {
-						@apply h-[3rem];
+						@apply h-[3rem] items-center;
 					}
 
                     .glass-card {
@@ -100,7 +100,7 @@ header {
 			}
 
             &-dd-inner {
-                @apply w-full;
+                @apply w-full opacity-0 h-0 overflow-hidden;
 			}
 
             &-dd-items {
