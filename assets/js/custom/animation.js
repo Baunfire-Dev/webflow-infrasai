@@ -13,8 +13,8 @@
             let isScrolled = false;
             let scrollDirection = null;
 
-            const parents = nav.querySelector(".nav-item.is-parent");
-            const allNavItems = nav.querySelector(".nav-item");
+            const parents = nav.querySelectorAll(".nav-item.is-parent");
+            const allNavItems = nav.querySelectorAll(".nav-item");
 
             const updateNavScroll = () => {
                 const currentScrollY = window.scrollY;
