@@ -247,11 +247,17 @@
                 if (!splide) return;
 
                 baunfire.Global.importSplideScript(() => {
-                    new Splide(splide, {
+                    const slider = new Splide(splide, {
                         type: 'loop',
                         perPage: 1,
                         gap: '1rem',
-                    }).mount();
+                    });
+
+                    slider.on('mounted', () => {
+                        baunfire.Global.screenSizeChange();
+                    });
+
+                    slider.mount();
                 });
             }
 
