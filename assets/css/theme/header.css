@@ -57,7 +57,7 @@ header {
 						.nav {
 							&-item-icon {
 								svg {
-									path:first-of-type {
+									path:last-of-type {
 										@apply opacity-0;
 									}
 								}
@@ -69,7 +69,7 @@ header {
 
 							&-dd-inner {
 								@apply transition-all duration-300 ease-out opacity-100;
-								transform: translateY(0);
+								transform: translateX(0);
 							}
 						}
 					}
@@ -126,11 +126,12 @@ header {
 			&-dd {
 				@apply relative inset-0 w-full visible;
 				@apply h-0 overflow-hidden;
+                transform: none;
 			}
 
 			&-dd-inner {
 				@apply w-full opacity-0;
-				transform: translateY(0.75rem);
+				transform: translateX(0.75rem);
 			}
 
 			&-dd-items {
