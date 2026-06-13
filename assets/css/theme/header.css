@@ -7,7 +7,7 @@ header {
 				@apply w-[1rem] h-auto;
 
 				path {
-					@apply transition-all ease-out duration-500;
+					@apply transition-all ease-out duration-300;
 				}
 			}
 		}
