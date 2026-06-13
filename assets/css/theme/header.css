@@ -68,7 +68,7 @@ header {
 							}
 
 							&-dd-inner {
-								@apply transition-all duration-300 ease-out opacity-100;
+								@apply transition-all duration-500 ease-out opacity-100;
 								transform: translateX(0);
 							}
 						}
