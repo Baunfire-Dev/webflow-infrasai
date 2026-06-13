@@ -19,12 +19,6 @@ header {
 						&-dd {
 							@apply visible;
 						}
-
-						&-dd-items {
-							@apply opacity-100;
-							transition: all 0.3s ease;
-							transform: translateY(0);
-						}
 					}
 				}
 			}
@@ -32,11 +26,6 @@ header {
 
 		&-dd {
 			@apply flex invisible;
-		}
-
-		&-dd-items {
-			@apply opacity-0;
-			transform: translateY(0.625rem);
 		}
 	}
 
