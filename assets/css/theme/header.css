@@ -33,7 +33,7 @@ header {
 	&:has(.nav-item.open),
 	&.nav-scrolled,
 	&.mob-active {
-		nav {
+		.nav {
 			background-color: var(--_colors---black);
 		}
 	}
