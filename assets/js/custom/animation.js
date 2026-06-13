@@ -67,7 +67,7 @@
                 });
 
                 allNavItems.forEach(function (el) {
-                    if (el.classList.contains('parent')) return;
+                    if (el.classList.contains('is-parent')) return;
 
                     el.addEventListener('mouseenter', function () {
                         if (!isBigScreen()) return;
