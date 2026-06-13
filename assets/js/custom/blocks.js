@@ -263,6 +263,7 @@
                     });
 
                     slider.on('mounted', () => {
+                        baunfire.Global.screenSizeChange();
                         prevBtn?.addEventListener('click', () => slider.go('<'));
                         nextBtn?.addEventListener('click', () => slider.go('>'));
                     });
