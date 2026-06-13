@@ -1,6 +1,6 @@
 section.testimonial-carousel {
 	.tc-arrow {
-		@apply border border-transparent rounded-[0.25rem];
+		@apply border border-solid border-transparent rounded-[0.25rem];
 		@apply transition-colors duration-500 ease-out;
 
 		&:hover {
