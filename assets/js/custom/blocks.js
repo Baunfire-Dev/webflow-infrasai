@@ -260,8 +260,10 @@
                         reducedMotion: {
                             speed: 600,
                         },
+                        autoplay: true,
+                        interval: 6000,
                     });
-                    
+
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
                         prevBtn?.addEventListener('click', () => slider.go('<'));
