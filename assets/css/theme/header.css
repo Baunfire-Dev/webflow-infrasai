@@ -31,14 +31,18 @@ header {
 
 	@media not all and (min-width: 62rem) {
 		.nav {
-			&-item {
-				@apply h-[3rem] border-solid w-full;
-                border-width: 0px 0px 1px 0px;
-                border-color: var(--_colors---white-20);
-			}
-
 			&-items {
 				@apply flex-col gap-0;
+			}
+
+			&-item {
+				@apply h-[3rem] border-solid w-full;
+				border-width: 0px 0px 1px 0px;
+				border-color: var(--_colors---white-20);
+			}
+
+			&-item-inner {
+				@apply w-full;
 			}
 
 			&-actions {
@@ -70,10 +74,10 @@ header {
 				padding-left: var(--global--container-padding);
 			}
 
-            &-panel-outer,
-            &-panel-inner {
-                @apply h-auto max-h-full;
-            }
+			&-panel-outer,
+			&-panel-inner {
+				@apply h-auto max-h-full;
+			}
 
 			&-panel,
 			&-panel-inner {
