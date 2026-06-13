@@ -248,7 +248,7 @@
                 const nextBtn = self.querySelector(".tc-arrow.next");
                 if (!splide) return;
 
-                this.importSplideScript(() => {
+                baunfire.Global.importSplideScript(() => {
                     const slider = new Splide(splide, {
                         type: 'loop',
                         perPage: 1,
