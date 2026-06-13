@@ -3,6 +3,7 @@
 
 @import "header";
 @import "glass";
+@import "global";
 @import-glob "../blocks/*.css";
 
 * {
