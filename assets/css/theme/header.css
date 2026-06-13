@@ -2,13 +2,14 @@ header {
 	.nav {
 		@apply transition-all duration-500 ease-out;
 
-		&-dd {
-			@apply flex invisible;
-		}
+		&-burger {
+			svg {
+				@apply w-[1rem] h-auto;
 
-		&-dd-inner {
-			@apply opacity-0;
-			transform: translateY(0.625rem);
+				rect {
+					@apply transition-all ease-out duration-500;
+				}
+			}
 		}
 
 		&-item {
@@ -20,7 +21,7 @@ header {
 						}
 
 						&-dd-inner {
-                            @apply opacity-100;
+							@apply opacity-100;
 							transition: all 0.3s ease;
 							transform: translateY(0);
 						}
@@ -28,6 +29,50 @@ header {
 				}
 			}
 		}
+
+		&-dd {
+			@apply flex invisible;
+		}
+
+		&-dd-inner {
+			@apply opacity-0;
+			transform: translateY(0.625rem);
+		}
+
+        &-panel,
+		&-panel-inner,
+		&-panel-outer {
+			@apply xl:contents;
+		}
+
+		&-panel {
+			@media not all and (min-width: 62rem) {
+				@apply pointer-events-none invisible absolute top-0 w-full h-[100svh] flex flex-col left-0 pt-[2.5rem];
+				clip-path: inset(0% 0% 100% 0%);
+			}
+		}
+
+		&-panel-outer {
+			@media not all and (min-width: 62rem) {
+				@apply h-full bg-white overflow-clip;
+			}
+		}
+
+		&-panel-inner {
+			@media not all and (min-width: 62rem) {
+				@apply h-full flex flex-col translate-y-[-2.5rem] opacity-0;
+				@apply pt-[1.25rem] pb-[12.5rem] ~px-[1rem]/[4rem];
+				@apply overflow-x-clip overflow-y-auto;
+			}
+		}
+
+		&-panel,
+		&-panel-inner {
+			@media not all and (min-width: 62rem) {
+				@apply transition-all duration-500 ease-out;
+			}
+		}
+
 	}
 
 	&:has(.nav-item.open),
@@ -35,6 +80,37 @@ header {
 	&.mob-active {
 		.nav {
 			background-color: var(--_colors---black);
+		}
+	}
+
+	&.mob-active {
+		.nav {
+			&-burger {
+				rect {
+					&:nth-child(1) {
+						transform: rotate(45deg) translate(0.1875rem, -0.125rem);
+					}
+
+					&:nth-child(2) {
+						@apply hidden;
+					}
+
+					&:nth-child(3) {
+						transform: rotate(-45deg)
+							translate(-0.4375rem, -0.125rem);
+					}
+				}
+			}
+
+			&-panel {
+				@apply pointer-events-auto visible;
+				clip-path: inset(0% 0% 0% 0%);
+			}
+
+			&-panel-inner {
+				@apply opacity-100 translate-y-0;
+				@apply transition-all duration-[0.4s] ease-out delay-100;
+			}
 		}
 	}
 
