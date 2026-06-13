@@ -1,3 +1,10 @@
+html {
+	&.disable-scrolling,
+	&:has(dialog[open]) {
+		@apply overflow-hidden;
+	}
+}
+
 .splide {
 	.splide__pagination {
 		@apply flex gap-[0.625rem] p-[0.625rem] bottom-[-4.625rem];
