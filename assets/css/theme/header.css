@@ -39,7 +39,16 @@ header {
 				}
 			}
 
-			&-item-text {
+            &-dd-item {
+				&:hover {
+					.nav-dd-item-text {
+						color: var(--_colors---green);
+					}
+				}
+			}
+
+			&-item-text,
+            &-dd-item-text  {
 				@apply transition-colors duration-300 ease-out;
 			}
 		}
