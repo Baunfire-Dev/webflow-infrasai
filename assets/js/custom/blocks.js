@@ -6,6 +6,7 @@
             this.typeTextReveal();
             this.accordionTextmedia();
             this.testimonialCarousel();
+            this.heroTitleImage();
         },
 
         heroHomepage() {
@@ -79,6 +80,47 @@
                     onLeaveBack: () => video.pause(),
                 });
             }
+
+            script();
+        },
+
+        heroTitleImage() {
+            const script = () => {
+                const els = document.querySelectorAll("section.hero-title-image");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleEntrance(self);
+                });
+            }
+
+            const handleEntrance = (self) => {
+                const headTexts = self.querySelector(".hh-head");
+
+                const tl = gsap.timeline({
+                    paused: true,
+                    scrollTrigger: {
+                        trigger: self,
+                        start: baunfire.anim.start,
+                        onEnter: () => tl.delay(0.5).play()
+                    }
+                });
+
+                if (headTexts) {
+                    SplitText.create(headTexts, {
+                        type: "words",
+                        mask: "words",
+                        onSplit(split) {
+                            headTexts.style.opacity = "1";
+
+                            tl.fromTo(split.words,
+                                { y: "100%" },
+                                { y: "-5%", duration: 0.6, ease: "power2.out", stagger: 0.03 }
+                            );
+                        },
+                    });
+                }
+            };
 
             script();
         },
