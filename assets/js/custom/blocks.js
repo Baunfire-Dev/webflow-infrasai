@@ -95,7 +95,7 @@
             }
 
             const handleEntrance = (self) => {
-                const headTexts = self.querySelector(".hh-head");
+                const headTexts = self.querySelector(".hti-head");
 
                 const tl = gsap.timeline({
                     paused: true,
