@@ -317,7 +317,7 @@
             }
 
             script();
-        }
+        },
     };
 
     baunfire.addModule(baunfire.Blocks);
