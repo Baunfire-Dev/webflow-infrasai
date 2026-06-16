@@ -339,7 +339,20 @@
                 if (!links || !targets) return;
 
                 links[0].classList.add("active");
-                links.forEach(link => link.addEventListener("click", e => { e.stopPropagation() }));
+                
+                links.forEach(link => link.addEventListener("click", e => {
+                    e.preventDefault();
+
+                    const target = self.getElementById(link.getAttribute('href'));
+                    if (!target) return;
+
+                    baunfire.lenis?.stop();
+                    baunfire.lenis?.start();
+                    baunfire.lenis?.scrollTo(target, {
+                        duration: 1,
+                        offset: -100,
+                    });
+                }));
 
                 targets.forEach(target => {
                     const id = target.id;
@@ -359,13 +372,6 @@
                 if (!targetLink) return;
                 links.forEach(link => link.classList.remove("active"));
                 targetLink.classList.add("active");
-
-                baunfire.lenis?.stop();
-                baunfire.lenis?.start();
-                baunfire.lenis?.scrollTo(targetLink, {
-                    duration: 1,
-                    offset: -100,
-                });
             };
 
             script();
