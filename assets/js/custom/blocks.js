@@ -343,7 +343,7 @@
                 links.forEach(link => link.addEventListener("click", e => {
                     e.preventDefault();
 
-                    const target = self.getElementById(link.getAttribute('href'));
+                    const target = document.getElementById(link.getAttribute('href'));
                     if (!target) return;
 
                     baunfire.lenis?.stop();
