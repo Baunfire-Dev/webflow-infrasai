@@ -341,44 +341,32 @@
                 links[0].classList.add("active");
                 links.forEach(link => link.addEventListener("click", e => { e.stopPropagation() }));
 
-                const activate = (targetLink) => {
-                    if (!targetLink) return;
-                    links.forEach(link => link.classList.remove("active"));
-                    targetLink.classList.add("active");
+                targets.forEach(target => {
+                    const id = target.id;
+                    const targetLink = self.querySelector(`.rtt-anchor[href='#${id}']`);
 
-                    baunfire.lenis?.stop();
-                    baunfire.lenis?.start();
-                    baunfire.lenis?.scrollTo(targetLink, {
-                        duration: 1,
-                        offset: -100,
+                    ScrollTrigger.create({
+                        trigger: target,
+                        start: "top 20%",
+                        end: "bottom 20%",
+                        onEnter: () => activateLink(links, targetLink),
+                        onEnterBack: () => activateLink(links, targetLink),
                     });
-                };
-
-                mm.add({
-                    isDesktop: `(min-width: 992px)`,
-                    isMobile: `(max-width: 991.98px)`,
-                }, (context) => {
-                    let { isDesktop, isMobile } = context.conditions;
-
-                    if (isDesktop) {
-                        targets.forEach(target => {
-                            const id = target.id;
-                            const targetLink = self.querySelector(`.rtt-anchor[href='#${id}']`);
-
-                            ScrollTrigger.create({
-                                trigger: target,
-                                start: "top 20%",
-                                end: "bottom 20%",
-                                onEnter: () => activate(targetLink),
-                                onEnterBack: () => activate(targetLink),
-                            });
-                        });
-                    }
-
-                    return () => {
-                    }
                 });
             }
+
+            const activateLink = (links, targetLink) => {
+                if (!targetLink) return;
+                links.forEach(link => link.classList.remove("active"));
+                targetLink.classList.add("active");
+
+                baunfire.lenis?.stop();
+                baunfire.lenis?.start();
+                baunfire.lenis?.scrollTo(targetLink, {
+                    duration: 1,
+                    offset: -100,
+                });
+            };
 
             script();
         }
