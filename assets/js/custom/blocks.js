@@ -336,7 +336,7 @@
                 const links = self.querySelectorAll(".rtt-anchor");
                 const targets = self.querySelectorAll(".rtt-text-block-anchor");
 
-                if (!link || !targets) return;
+                if (!links || !targets) return;
 
                 links[0].classList.add("active");
 
