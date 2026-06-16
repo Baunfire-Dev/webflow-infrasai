@@ -13,11 +13,11 @@ section.rich-text-toc {
 				@apply opacity-100;
 
 				&::before {
-					@apply opacity-100;
+					@apply opacity-100 delay-100;
 				}
 
 				.rtt-anchor-text {
-					@apply pl-[0.875rem] delay-100;
+					@apply pl-[0.875rem];
 				}
 			}
 		}
