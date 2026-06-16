@@ -344,8 +344,7 @@
                     e.preventDefault();
                     baunfire.lenis?.stop();
 
-                    const target = document.getElementById(link.getAttribute('href'));
-                    console.log(target);
+                    const target = document.querySelector(link.getAttribute('href'));
                     if (!target) return;
                     
                     baunfire.lenis?.start();
