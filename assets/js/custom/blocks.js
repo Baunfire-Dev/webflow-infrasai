@@ -339,9 +339,7 @@
                 if (!links || !targets) return;
 
                 links[0].classList.add("active");
-                links.addEventListener("click", e => {
-                    e.stopPropagation();
-                });
+                links.forEach(link => link.addEventListener("click", e => { e.stopPropagation() }));
 
                 const activate = (targetLink) => {
                     if (!targetLink) return;
