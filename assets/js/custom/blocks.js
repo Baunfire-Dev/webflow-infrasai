@@ -341,6 +341,9 @@
                 links[0].classList.add("active");
 
                 const activate = (targetLink) => {
+                    baunfire.lenis?.stop();
+                    baunfire.lenis?.start();
+                    
                     if (!targetLink) return;
                     links.forEach(link => link.classList.remove("active"));
                     targetLink.classList.add("active");
