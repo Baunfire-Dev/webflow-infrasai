@@ -342,11 +342,12 @@
                 
                 links.forEach(link => link.addEventListener("click", e => {
                     e.preventDefault();
+                    baunfire.lenis?.stop();
 
                     const target = document.getElementById(link.getAttribute('href'));
+                    console.log(target);
                     if (!target) return;
-
-                    baunfire.lenis?.stop();
+                    
                     baunfire.lenis?.start();
                     baunfire.lenis?.scrollTo(target, {
                         duration: 1,
