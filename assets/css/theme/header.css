@@ -198,7 +198,7 @@ header {
 		}
 	}
 
-	&.nav-scrolling-down:not(.mob-active):not(:has(.nav-item.open)) {
+	&.nav-scrolling-down.nav-scrolled:not(.mob-active):not(:has(.nav-item.open)) {
 		@apply pointer-events-none;
 
 		.nav {
