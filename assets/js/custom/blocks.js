@@ -344,10 +344,10 @@
                     if (!targetLink) return;
                     links.forEach(link => link.classList.remove("active"));
                     targetLink.classList.add("active");
-                    
+
                     baunfire.lenis?.stop();
                     baunfire.lenis?.start();
-                    baunfire.lenis?.scrollTo(element.get(0), {
+                    baunfire.lenis?.scrollTo(targetLink, {
                         duration: 1,
                         offset: -100,
                     });
