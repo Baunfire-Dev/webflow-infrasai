@@ -230,7 +230,7 @@
                                 };
                             }
 
-                            return gsap.fromTo(self.words, { y: "100%" }, { props });
+                            return gsap.fromTo(self.words, { y: "100%" }, props);
                         }
                     });
                 });
