@@ -340,10 +340,10 @@
 
                 links[0].classList.add("active");
 
-                const activate = (link) => {
-                    if (!link) return;
-                    links.forEach(subSelf => subSelf.classList.remove("active"));
-                    link.classList.add("active");
+                const activate = (targetLink) => {
+                    if (!targetLink) return;
+                    links.forEach(link => link.classList.remove("active"));
+                    targetLink.classList.add("active");
                 };
 
                 mm.add({
@@ -355,14 +355,14 @@
                     if (isDesktop) {
                         targets.forEach(target => {
                             const id = target.id;
-                            const link = self.querySelector(`.rtt-anchor[href='#${id}']`);
+                            const targetLink = self.querySelector(`.rtt-anchor[href='#${id}']`);
 
                             ScrollTrigger.create({
                                 trigger: target,
                                 start: "top 20%",
                                 end: "bottom 20%",
-                                onEnter: () => activate(link),
-                                onEnterBack: () => activate(link),
+                                onEnter: () => activate(targetLink),
+                                onEnterBack: () => activate(targetLink),
                             });
                         });
                     }
