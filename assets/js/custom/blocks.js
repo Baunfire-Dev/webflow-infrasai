@@ -340,11 +340,10 @@
 
                 links[0].classList.add("active");
                 
-                links.forEach(link => link.addEventListener("click", e => {
-                    e.preventDefault();
+                links.forEach(link => link.addEventListener("click", () => {
                     baunfire.lenis?.stop();
 
-                    const target = document.querySelector(link.getAttribute('href'));
+                    const target = document.getElementById(link.getAttribute('anchor'));
                     if (!target) return;
                     
                     baunfire.lenis?.start();
