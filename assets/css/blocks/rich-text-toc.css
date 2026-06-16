@@ -5,17 +5,27 @@ section.rich-text-toc {
 
 			&::before {
 				content: "";
-				@apply absolute size-[0.375rem] bg-white top-1/2 -translate-y-1/2 left-0;
+				@apply absolute size-[0.375rem] bg-white top-1/2 left-0 opacity-0;
+				transform: translateY(-50%);
 			}
 
 			&.active {
-                @apply opacity-100;
+				@apply opacity-100;
+
+				&::before {
+					@apply opacity-100;
+				}
 			}
 		}
 
-        &-anchor,
+		&-anchor,
+        &-anchor::before,
 		&-anchor-text {
 			@apply transition-all duration-300 ease-out;
+		}
+
+		&-anchor-text {
+			@apply pl-[0.875rem];
 		}
 	}
 }
