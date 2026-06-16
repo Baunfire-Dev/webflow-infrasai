@@ -342,8 +342,8 @@
 
                 const activate = (link) => {
                     if (!link) return;
-                    links.removeClass("active");
-                    link.addClass("active");
+                    links.forEach(subSelf => subSelf.classList.remove("active"));
+                    link.classList.addClass("active");
                 };
 
                 mm.add({
