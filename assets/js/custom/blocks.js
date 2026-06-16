@@ -338,12 +338,12 @@
 
                 if (!link || !targets) return;
 
-                links[0].classList.addClass("active");
+                links[0].classList.add("active");
 
                 const activate = (link) => {
                     if (!link) return;
                     links.forEach(subSelf => subSelf.classList.remove("active"));
-                    link.classList.addClass("active");
+                    link.classList.add("active");
                 };
 
                 mm.add({
