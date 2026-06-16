@@ -341,6 +341,7 @@
                 links[0].classList.addClass("active");
 
                 const activate = (link) => {
+                    if (!link) return;
                     links.removeClass("active");
                     link.addClass("active");
                 };
