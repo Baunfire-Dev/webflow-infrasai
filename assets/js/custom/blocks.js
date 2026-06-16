@@ -356,6 +356,7 @@
                 targets.forEach(target => {
                     const id = target.id;
                     const targetLink = self.querySelector(`.rtt-anchor[anchor='${id}']`);
+                    if (!targetLink) return;
 
                     ScrollTrigger.create({
                         trigger: target,
