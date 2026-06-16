@@ -13,13 +13,19 @@ section.rich-text-toc {
 				@apply opacity-100;
 
 				&::before {
-					@apply opacity-100 delay-100;
+					@apply opacity-100 delay-200;
 				}
 
 				.rtt-anchor-text {
 					@apply pl-[0.875rem];
 				}
 			}
+
+            &:not(.active) {
+                &::before {
+					@apply transition-none;
+				}
+            }
 		}
 
 		&-anchor,
