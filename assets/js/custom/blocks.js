@@ -349,7 +349,6 @@
                     baunfire.lenis?.start();
                     baunfire.lenis?.scrollTo(target, {
                         duration: 1,
-                        offset: -100,
                     });
                 }));
 
