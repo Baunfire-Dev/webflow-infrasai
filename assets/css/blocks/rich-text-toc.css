@@ -17,7 +17,7 @@ section.rich-text-toc {
 				}
 
 				.rtt-anchor-text {
-					@apply pl-[0.875rem];
+					@apply pl-[0.875rem] delay-100;
 				}
 			}
 		}
