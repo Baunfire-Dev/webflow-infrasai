@@ -336,6 +336,10 @@
                 const links = self.querySelectorAll(".rtt-anchor");
                 const targets = self.querySelectorAll(".rtt-text-block-anchor");
 
+                if (!link || !targets) return;
+
+                links[0].classList.addClass("active");
+
                 const activate = (link) => {
                     links.removeClass("active");
                     link.addClass("active");
