@@ -7,6 +7,7 @@
             this.accordionTextmedia();
             this.testimonialCarousel();
             this.heroTitleImage();
+            this.richTextTOC();
         },
 
         heroHomepage() {
