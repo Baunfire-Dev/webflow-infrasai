@@ -9,14 +9,11 @@ section.rich-text-toc {
 			}
 
 			&.active {
-				.rtt {
-					&-anchor-text {
-						@apply text-white;
-					}
-				}
+                @apply opacity-100;
 			}
 		}
 
+        &-anchor,
 		&-anchor-text {
 			@apply transition-all duration-300 ease-out;
 		}
