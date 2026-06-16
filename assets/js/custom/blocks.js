@@ -318,6 +318,56 @@
 
             script();
         },
+
+        richTextTOC() {
+            const script = () => {
+                const els = document.querySelectorAll("section.rich-text-toc");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleTOC(self);
+                });
+            }
+
+            const handleTOC = (self) => {
+                const mm = gsap.matchMedia();
+
+                const links = self.querySelectorAll(".rtt-anchor");
+                const targets = self.querySelectorAll(".rtt-text-block-anchor");
+
+                const activate = (link) => {
+                    links.removeClass("active");
+                    link.addClass("active");
+                };
+
+                mm.add({
+                    isDesktop: `(min-width: 992px)`,
+                    isMobile: `(max-width: 991.98px)`,
+                }, (context) => {
+                    let { isDesktop, isMobile } = context.conditions;
+
+                    if (isDesktop) {
+                        targets.forEach(target => {
+                            const id = target.id;
+                            const link = self.querySelector(`.rtt-anchor[href='#${id}']`);
+
+                            ScrollTrigger.create({
+                                trigger: target,
+                                start: "top 20%",
+                                end: "bottom 20%",
+                                onEnter: () => activate(link),
+                                onEnterBack: () => activate(link),
+                            });
+                        });
+                    }
+
+                    return () => {
+                    }
+                });
+            }
+
+            script();
+        }
     };
 
     baunfire.addModule(baunfire.Blocks);
