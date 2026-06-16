@@ -15,17 +15,17 @@ section.rich-text-toc {
 				&::before {
 					@apply opacity-100;
 				}
+
+				.rtt-anchor-text {
+					@apply pl-[0.875rem];
+				}
 			}
 		}
 
 		&-anchor,
-        &-anchor::before,
+		&-anchor::before,
 		&-anchor-text {
 			@apply transition-all duration-300 ease-out;
-		}
-
-		&-anchor-text {
-			@apply pl-[0.875rem];
 		}
 	}
 }
