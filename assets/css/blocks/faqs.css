@@ -9,7 +9,7 @@ section.faqs {
 
 		&-body-inner {
 			@apply opacity-0 invisible;
-			transform: translateY(0.875rem);
+			transform: translateX(0.875rem);
 		}
 
 		&-sign {
