@@ -1,0 +1,22 @@
+section.blocks-with-toc {
+	.bwt {
+		&-anchor {
+			&.active {
+				.bwt {
+                    &-icon svg path {
+                        fill: var(--_colors---green);
+                    }
+
+                    &-anchor-text {
+                        color: var(--_colors---green);
+                    }
+                }
+			}
+		}
+
+        &-icon svg path,
+        &-anchor-text {
+			@apply transition-colors duration-300 ease-out;
+		}
+	}
+}
