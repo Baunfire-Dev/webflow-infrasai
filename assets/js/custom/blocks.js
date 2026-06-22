@@ -3,12 +3,15 @@
         init() {
             this.heroHomepage();
             this.heroTitle();
+            this.heroTitleImage();
+
             this.socialProof();
             this.typeTextReveal();
             this.accordionTextmedia();
             this.testimonialCarousel();
-            this.heroTitleImage();
+            
             this.richTextTOC();
+            this.blocksWithTOC();
         },
 
         heroHomepage() {
@@ -397,6 +400,62 @@
                 targets.forEach(target => {
                     const id = target.id;
                     const targetLink = self.querySelector(`.rtt-anchor[anchor='${id}']`);
+                    if (!targetLink) return;
+
+                    ScrollTrigger.create({
+                        trigger: target,
+                        start: "top 20%",
+                        end: "bottom 20%",
+                        onEnter: () => activateLink(links, targetLink),
+                        onEnterBack: () => activateLink(links, targetLink),
+                    });
+                });
+            }
+
+            const activateLink = (links, targetLink) => {
+                if (!targetLink) return;
+                links.forEach(link => link.classList.remove("active"));
+                targetLink.classList.add("active");
+            };
+
+            script();
+        },
+
+        blocksWithTOC() {
+            const script = () => {
+                const els = document.querySelectorAll("section.blocks-with-toc");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleTOC(self);
+                });
+            }
+
+            const handleTOC = (self) => {
+                const mm = gsap.matchMedia();
+
+                const links = self.querySelectorAll(".bwt-anchor");
+                const targets = self.querySelectorAll(".bwt-target");
+
+                if (!links || !targets) return;
+
+                links[0].classList.add("active");
+                
+                links.forEach(link => link.addEventListener("click", () => {
+                    baunfire.lenis?.stop();
+
+                    const target = document.getElementById(link.getAttribute('anchor'));
+                    if (!target) return;
+                    
+                    baunfire.lenis?.start();
+                    baunfire.lenis?.scrollTo(target, {
+                        duration: 1,
+                    });
+                }));
+
+                targets.forEach(target => {
+                    const id = target.id;
+                    const targetLink = self.querySelector(`.bwt-anchor[anchor='${id}']`);
                     if (!targetLink) return;
 
                     ScrollTrigger.create({
