@@ -6,7 +6,7 @@ section.featured-resources {
 		&:hover {
 			border-color: var(--_colors---purple);
 			background: rgba(0, 0, 0, 0);
-			box-shadow: 0 4px 8px 0 rgba(123, 66, 188, 0.25);
+			box-shadow: 0 0.5rem 0.5rem 0 rgba(123, 66, 188, 0.25);
 		}
 	}
 }
