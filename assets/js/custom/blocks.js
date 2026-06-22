@@ -9,7 +9,8 @@
             this.typeTextReveal();
             this.accordionTextmedia();
             this.testimonialCarousel();
-            
+            this.faqs();
+
             this.richTextTOC();
             this.blocksWithTOC();
         },
@@ -284,7 +285,7 @@
                         baunfire.Global.screenSizeChange();
                     });
                 });
-            }
+            };
 
             const scrollToSection = (el) => {
                 baunfire.lenis?.stop();
@@ -384,13 +385,13 @@
                 if (!links || !targets) return;
 
                 links[0].classList.add("active");
-                
+
                 links.forEach(link => link.addEventListener("click", () => {
                     baunfire.lenis?.stop();
 
                     const target = document.getElementById(link.getAttribute('anchor'));
                     if (!target) return;
-                    
+
                     baunfire.lenis?.start();
                     baunfire.lenis?.scrollTo(target, {
                         duration: 1,
@@ -440,13 +441,13 @@
                 if (!links || !targets) return;
 
                 links[0].classList.add("active");
-                
+
                 links.forEach(link => link.addEventListener("click", () => {
                     baunfire.lenis?.stop();
 
                     const target = document.getElementById(link.getAttribute('anchor'));
                     if (!target) return;
-                    
+
                     baunfire.lenis?.start();
                     baunfire.lenis?.scrollTo(target, {
                         duration: 1,
@@ -473,6 +474,49 @@
                 links.forEach(link => link.classList.remove("active"));
                 targetLink.classList.add("active");
             };
+
+            script();
+        },
+
+        faqs() {
+            const script = () => {
+                const els = document.querySelectorAll("section.faqs");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleFAQ(self);
+                });
+            }
+
+            const handleFAQ = (self) => {
+                const accs = self.querySelectorAll(".acc");
+                if (!accs.length) return;
+
+                accs.forEach((acc, i) => {
+                    acc.addEventListener("click", (e) => {
+                        if (e.target.closest("a, button")) return;
+                        if (acc.classList.contains("active")) return;
+
+                        accs.forEach(a => a.classList.remove("active"));
+                        acc.classList.add("active");
+
+                        if (window.matchMedia("(max-width: 1200px)").matches) {
+                            scrollToSection(acc);
+                        }
+
+                        baunfire.Global.screenSizeChange();
+                    });
+                });
+            };
+
+            const scrollToSection = (el) => {
+                baunfire.lenis?.stop();
+                baunfire.lenis?.start();
+                baunfire.lenis?.scrollTo(el, {
+                    duration: 1,
+                    offset: -100,
+                });
+            }
 
             script();
         }
