@@ -1,6 +1,6 @@
 section.featured-resources {
 	.fr-item {
-		@apply border border-solid border-transparent rounded-[0.25rem];
+		@apply border border-solid border-transparent rounded-[0.5rem];
 		@apply transition-colors duration-500 ease-out;
 
 		&:hover {
