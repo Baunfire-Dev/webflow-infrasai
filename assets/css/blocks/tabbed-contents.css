@@ -1,13 +1,18 @@
 section.tabbed-contents {
-	p {
-		.word {
-			background: linear-gradient(to right, #FFF 50%, var(--_colors---white-20) 50%);
-			background-size: 200% 100%;
-			background-position-x: 100%;
-			color: transparent;
-			background-clip: text;
-			-webkit-background-clip: text;
-            @apply pb-[0.06em];
-		}
-	}
+	.tbc {
+        &-tab {
+            &, p {
+                @apply transition-colors duration-300 ease-out;
+            }
+
+            &:hover,
+            &.active {
+                background-color: var(--_colors---green);
+
+                p {
+                    color: var(--_colors---black);
+                }
+            }
+        }
+    }
 }
