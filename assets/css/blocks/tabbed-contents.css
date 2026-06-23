@@ -25,6 +25,10 @@ section.tabbed-contents {
 
 		&-panel-item {
 			@apply transition-all duration-300 ease-out;
+
+			&:not(.is-active) {
+                @apply h-[80%];
+			}
 		}
 	}
 

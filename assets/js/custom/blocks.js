@@ -623,6 +623,9 @@
                 const activePanel = panels[activeIndex];
                 if (!activePanel) return;
 
+                panels.forEach(panel => tab.classList.remove('active'));
+                activePanel.classList.add('active');
+
                 tabs.forEach(tab => {
                     const isActive = tab.getAttribute('target') === activePanel.id;
                     tab.classList.toggle('active', isActive);
