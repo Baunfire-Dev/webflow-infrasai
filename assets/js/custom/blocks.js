@@ -569,7 +569,6 @@
                 const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
 
                 baunfire.Global.importSplideScript(() => {
-
                     const slider = new Splide(splide, {
                         type: 'slide',
                         perPage: 1,
