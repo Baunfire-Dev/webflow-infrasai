@@ -1,17 +1,40 @@
 section.tabbed-contents {
 	.tbc {
-        &-tab {
-            &, p {
-                @apply transition-colors duration-300 ease-out;
-            }
+		&-tab {
+			&,
+			p {
+				@apply transition-colors duration-300 ease-out;
+			}
 
-            &.active {
-                background-color: var(--_colors---green);
+			&.active {
+				background-color: var(--_colors---green);
 
-                p {
-                    color: var(--_colors---black);
-                }
-            }
-        }
-    }
+				p {
+					color: var(--_colors---black);
+				}
+			}
+
+			&.active {
+				background-color: var(--_colors---green);
+
+				p {
+					color: var(--_colors---black);
+				}
+			}
+		}
+
+		&-panel-item {
+			@apply transition-all duration-300 ease-out;
+		}
+	}
+
+	.splide__slide {
+		@apply flex items-center;
+
+		&:not(.is-active) {
+			.tbc-panel-item {
+				@apply h-[80%];
+			}
+		}
+	}
 }
