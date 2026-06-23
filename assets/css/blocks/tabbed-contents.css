@@ -24,7 +24,8 @@ section.tabbed-contents {
 		}
 
 		&-panel-item {
-			@apply transition-all duration-300 ease-out;
+            transition: height 0.5s ease;
+            @apply h-full;
 
 			&:not(.active) {
                 @apply h-[80%];
