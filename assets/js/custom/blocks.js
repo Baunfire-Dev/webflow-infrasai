@@ -499,6 +499,10 @@
                         if (e.target.closest("a, button")) return;
                         if (acc.classList.contains("active")) return;
 
+                        if (window.matchMedia("(max-width: 1200px)").matches) {
+                            scrollToSection(acc);
+                        }
+
                         gsap.fromTo(
                             body,
                             {
