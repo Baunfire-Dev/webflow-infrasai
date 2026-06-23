@@ -503,6 +503,9 @@
                             scrollToSection(acc);
                         }
 
+                        accs.forEach(a => a.classList.remove("active"));
+                        acc.classList.add("active");
+
                         gsap.fromTo(
                             body,
                             {
