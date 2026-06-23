@@ -492,11 +492,9 @@
                 const accs = self.querySelectorAll(".acc");
                 if (!accs.length) return;
 
-                const accBodies = self.querySelectorAll(".acc-body");
-
-                accs.forEach((acc, i) => {
+                accs.forEach((acc) => {
                     const body = acc.querySelector(".acc-body");
-                    
+
                     acc.addEventListener("click", (e) => {
                         if (e.target.closest("a, button")) return;
                         if (acc.classList.contains("active")) return;
@@ -508,28 +506,30 @@
                             scrollToSection(acc);
                         }
 
+                        const otherBodies = [...self.querySelectorAll(".acc-body")]
+                            .filter(el => el !== body);
+
                         gsap.timeline()
-                        .to(
-                            accBodies,
-                            {
+                            .to(otherBodies, {
                                 height: 0,
                                 duration: 0.6,
                                 overwrite: true,
                                 ease: "power2.out",
-                            }
-                        )
-                        .fromTo(
-                            body,
-                            {
-                                height: 0,
-                            },
-                            {
-                                height: "auto",
-                                duration: 0.6,
-                                overwrite: true,
-                                ease: "power2.out",
-                            }
-                        );
+                            }, "transition"
+                            )
+                            .fromTo(
+                                body,
+                                {
+                                    height: 0,
+                                },
+                                {
+                                    height: "auto",
+                                    duration: 0.6,
+                                    overwrite: true,
+                                    ease: "power2.out",
+                                },
+                                "transition"
+                            );
 
                         baunfire.Global.screenSizeChange();
                     });
