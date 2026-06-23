@@ -581,8 +581,6 @@
                             speed: 600,
                         },
                         pagination: false,
-                        autoplay: true,
-                        interval: 6000,
                         rewind: true,
                     });
 
@@ -605,16 +603,16 @@
 
             const bindTabs = (slider, tabs, panels) => {
                 const indexMap = {};
+                
                 panels.forEach((panel, i) => {
                     indexMap[panel.id] = i;
-                    console.log(`panel "${panel.id}" -> index ${i}`);
                 });
 
                 tabs.forEach(tab => {
                     tab.addEventListener('click', () => {
                         const targetId = tab.getAttribute('target');
                         const index = indexMap[targetId];
-                        console.log(`tab clicked: target="${targetId}" -> index=${index}`);
+
                         if (index !== undefined) {
                             slider.go(index);
                         }
