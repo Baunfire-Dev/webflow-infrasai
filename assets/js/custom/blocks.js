@@ -580,6 +580,7 @@
                         pagination: false,
                         autoplay: true,
                         interval: 6000,
+                        rewind: true,
                     });
 
                     slider.on('ready', () => {
@@ -588,11 +589,13 @@
                         const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
                         const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
 
-                        bindTabs(self, slider, tabs, panels);
+                        console.log('tabs:', tabs.length, 'panels:', panels.length);
+
+                        bindTabs(slider, tabs, panels);
                         updateActiveTabs(tabs, panels, slider.index);
                     });
 
-                    slider.on('move', (newIndex) => {
+                    slider.on('moved', (newIndex) => {
                         const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
                         const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
                         updateActiveTabs(tabs, panels, newIndex);
@@ -602,16 +605,18 @@
                 });
             }
 
-            const bindTabs = (self, slider, tabs, panels) => {
+            const bindTabs = (slider, tabs, panels) => {
                 const indexMap = {};
                 panels.forEach((panel, i) => {
                     indexMap[panel.id] = i;
+                    console.log(`panel "${panel.id}" -> index ${i}`);
                 });
 
                 tabs.forEach(tab => {
                     tab.addEventListener('click', () => {
                         const targetId = tab.getAttribute('target');
                         const index = indexMap[targetId];
+                        console.log(`tab clicked: target="${targetId}" -> index=${index}`);
                         if (index !== undefined) {
                             slider.go(index);
                         }
