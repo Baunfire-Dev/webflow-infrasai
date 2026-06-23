@@ -583,9 +583,49 @@
 
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
+                        bindTabs(self, slider);
+                    });
+
+                    slider.on('move', (newIndex) => {
+                        updateActiveTabs(self, newIndex);
                     });
 
                     slider.mount();
+                });
+            }
+
+            const bindTabs = (self, slider) => {
+                const tabs = self.querySelectorAll('.tbc-tab[target]');
+                const panels = self.querySelectorAll('.tbc-panel-item[id]');
+
+                const indexMap = {};
+                panels.forEach((panel, i) => {
+                    indexMap[panel.id] = i;
+                });
+
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const targetId = tab.getAttribute('target');
+                        const index = indexMap[targetId];
+                        if (index !== undefined) {
+                            slider.go(index);
+                        }
+                    });
+                });
+
+                updateActiveTabs(self, slider.index);
+            }
+
+            const updateActiveTabs = (self, activeIndex) => {
+                const tabs = self.querySelectorAll('.tbc-tab[target]');
+                const panels = self.querySelectorAll('.tbc-panel-item[id]');
+
+                const activePanel = panels[activeIndex];
+                if (!activePanel) return;
+
+                tabs.forEach(tab => {
+                    const isActive = tab.getAttribute('target') === activePanel.id;
+                    tab.classList.toggle('active', isActive);
                 });
             }
 
