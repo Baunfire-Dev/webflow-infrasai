@@ -587,8 +587,6 @@
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
 
-                        console.log('tabs:', tabs.length, 'panels:', panels.length);
-
                         bindTabs(slider, tabs, panels);
                         updateActiveTabs(tabs, panels, slider.index);
                     });
