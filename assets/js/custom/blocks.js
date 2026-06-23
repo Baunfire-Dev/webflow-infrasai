@@ -623,7 +623,7 @@
                 const activePanel = panels[activeIndex];
                 if (!activePanel) return;
 
-                panels.forEach(panel => tab.classList.remove('active'));
+                panels.forEach(panel => panel.classList.remove('active'));
                 activePanel.classList.add('active');
 
                 tabs.forEach(tab => {
