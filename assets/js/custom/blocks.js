@@ -492,6 +492,8 @@
                 const accs = self.querySelectorAll(".acc");
                 if (!accs.length) return;
 
+                const accBodies = self.querySelectorAll(".acc-body");
+
                 accs.forEach((acc, i) => {
                     const body = acc.querySelector(".acc-body");
                     
@@ -499,14 +501,24 @@
                         if (e.target.closest("a, button")) return;
                         if (acc.classList.contains("active")) return;
 
+                        accs.forEach(a => a.classList.remove("active"));
+                        acc.classList.add("active");
+
                         if (window.matchMedia("(max-width: 1200px)").matches) {
                             scrollToSection(acc);
                         }
 
-                        accs.forEach(a => a.classList.remove("active"));
-                        acc.classList.add("active");
-
-                        gsap.fromTo(
+                        gsap.timeline()
+                        .to(
+                            accBodies,
+                            {
+                                height: 0,
+                                duration: 0.6,
+                                overwrite: true,
+                                ease: "power2.out",
+                            }
+                        )
+                        .fromTo(
                             body,
                             {
                                 height: 0,
