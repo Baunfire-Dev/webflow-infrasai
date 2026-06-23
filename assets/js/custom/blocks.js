@@ -493,16 +493,24 @@
                 if (!accs.length) return;
 
                 accs.forEach((acc, i) => {
+                    const body = acc.querySelector(".acc-body");
+                    
                     acc.addEventListener("click", (e) => {
                         if (e.target.closest("a, button")) return;
                         if (acc.classList.contains("active")) return;
 
-                        accs.forEach(a => a.classList.remove("active"));
-                        acc.classList.add("active");
-
-                        if (window.matchMedia("(max-width: 1200px)").matches) {
-                            scrollToSection(acc);
-                        }
+                        gsap.fromTo(
+                            body,
+                            {
+                                height: 0,
+                            },
+                            {
+                                height: "auto",
+                                duration: 0.6,
+                                overwrite: true,
+                                ease: "power2.out",
+                            }
+                        );
 
                         baunfire.Global.screenSizeChange();
                     });
