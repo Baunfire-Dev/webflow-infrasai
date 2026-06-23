@@ -512,7 +512,7 @@
                             .to(otherBodies,
                                 {
                                     height: 0,
-                                    duration: 0.4,
+                                    duration: 0.5,
                                     overwrite: true,
                                     ease: "power2.out",
                                 }, 
@@ -525,7 +525,7 @@
                                 },
                                 {
                                     height: "auto",
-                                    duration: 0.4,
+                                    duration: 0.5,
                                     overwrite: true,
                                     ease: "power2.out",
                                 },
