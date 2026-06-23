@@ -577,6 +577,7 @@
                         reducedMotion: {
                             speed: 600,
                         },
+                        pagination: false,
                         autoplay: true,
                         interval: 6000,
                     });
