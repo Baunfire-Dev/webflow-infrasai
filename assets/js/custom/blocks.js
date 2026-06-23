@@ -565,7 +565,11 @@
                 const splide = self.querySelector(".splide");
                 if (!splide) return;
 
+                const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
+                const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
+
                 baunfire.Global.importSplideScript(() => {
+
                     const slider = new Splide(splide, {
                         type: 'slide',
                         perPage: 1,
@@ -586,9 +590,6 @@
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
 
-                        const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
-                        const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
-
                         console.log('tabs:', tabs.length, 'panels:', panels.length);
 
                         bindTabs(slider, tabs, panels);
@@ -596,8 +597,6 @@
                     });
 
                     slider.on('moved', (newIndex) => {
-                        const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
-                        const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
                         updateActiveTabs(tabs, panels, newIndex);
                     });
 
