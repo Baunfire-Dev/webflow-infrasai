@@ -1,6 +1,6 @@
-(function () {        
+(function () {
     const templateURL = 'https://baunfire-dev.github.io/webflow-infrasai';
-    
+
     baunfire.Global = {
 
         init() {
@@ -80,6 +80,15 @@
                 return;
             }
 
+            if (this._splideLoading) {
+                this._splideQueue = this._splideQueue || [];
+                this._splideQueue.push(callback);
+                return;
+            }
+
+            this._splideLoading = true;
+            this._splideQueue = [];
+
             this.fancyLog('Loading Splide...');
 
             const link = document.createElement('link');
@@ -93,10 +102,14 @@
 
             script.onload = () => {
                 this.fancyLog('Splide loaded.');
+                this._splideLoading = false;
                 callback?.();
+                this._splideQueue.forEach(cb => cb?.());
+                this._splideQueue = [];
             };
 
             script.onerror = () => {
+                this._splideLoading = false;
                 console.error('Failed to load Splide script.');
             };
 
