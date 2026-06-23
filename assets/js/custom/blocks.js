@@ -553,7 +553,7 @@
 
         tabbedContent() {
             const script = () => {
-                const els = document.querySelectorAll("section.tabbed-content");
+                const els = document.querySelectorAll("section.tabbed-contents");
                 if (!els.length) return;
 
                 els.forEach(self => {
