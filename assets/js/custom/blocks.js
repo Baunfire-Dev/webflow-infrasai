@@ -593,7 +593,7 @@
                         updateActiveTabs(tabs, panels, slider.index);
                     });
 
-                    slider.on('moved', (newIndex) => {
+                    slider.on('move', (newIndex) => {
                         updateActiveTabs(tabs, panels, newIndex);
                     });
 
@@ -603,7 +603,7 @@
 
             const bindTabs = (slider, tabs, panels) => {
                 const indexMap = {};
-                
+
                 panels.forEach((panel, i) => {
                     indexMap[panel.id] = i;
                 });
@@ -614,6 +614,7 @@
                         const index = indexMap[targetId];
 
                         if (index !== undefined) {
+                            updateActiveTabs(tabs, panels, index);
                             slider.go(index);
                         }
                     });
