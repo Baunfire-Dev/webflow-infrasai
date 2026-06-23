@@ -634,6 +634,51 @@
 
             script();
         },
+
+        heroFeaturedResources() {
+            const script = () => {
+                const els = document.querySelectorAll("section.hero-featured-resources");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleCarousel(self);
+                });
+            }
+
+            const handleCarousel = (self) => {
+                const splide = self.querySelector(".splide");
+                const prevBtn = self.querySelector(".tc-arrow.prev");
+                const nextBtn = self.querySelector(".tc-arrow.next");
+                if (!splide) return;
+
+                baunfire.Global.importSplideScript(() => {
+                    const slider = new Splide(splide, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        arrows: false,
+                        autoHeight: true,
+                        speed: 600,
+                        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                        reducedMotion: {
+                            speed: 600,
+                        },
+                        autoplay: true,
+                        interval: 6000,
+                    });
+
+                    slider.on('ready', () => {
+                        baunfire.Global.screenSizeChange();
+                        prevBtn?.addEventListener('click', () => slider.go('<'));
+                        nextBtn?.addEventListener('click', () => slider.go('>'));
+                    });
+
+                    slider.mount();
+                });
+            }
+
+            script();
+        },
     };
 
     baunfire.addModule(baunfire.Blocks);
