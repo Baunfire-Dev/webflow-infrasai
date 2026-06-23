@@ -502,10 +502,6 @@
                         accs.forEach(a => a.classList.remove("active"));
                         acc.classList.add("active");
 
-                        if (window.matchMedia("(max-width: 1200px)").matches) {
-                            scrollToSection(acc);
-                        }
-
                         const otherBodies = [...self.querySelectorAll(".acc-body")].filter(el => el !== body);
 
                         gsap.timeline()
@@ -515,7 +511,7 @@
                                     duration: 0.5,
                                     overwrite: true,
                                     ease: "power2.out",
-                                }, 
+                                },
                                 0
                             )
                             .fromTo(
@@ -528,11 +524,16 @@
                                     duration: 0.5,
                                     overwrite: true,
                                     ease: "power2.out",
+                                    onComplete: () => {
+                                        if (window.matchMedia("(max-width: 1200px)").matches) {
+                                            scrollToSection(acc);
+                                        }
+
+                                        baunfire.Global.screenSizeChange();
+                                    }
                                 },
                                 0
                             );
-
-                        baunfire.Global.screenSizeChange();
                     });
                 });
             };
