@@ -572,7 +572,7 @@
                     const slider = new Splide(splide, {
                         type: 'slide',
                         perPage: 1,
-                        gap: '1rem',
+                        gap: '2rem',
                         arrows: false,
                         autoHeight: true,
                         speed: 600,
