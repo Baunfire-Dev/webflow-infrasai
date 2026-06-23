@@ -24,22 +24,28 @@ section.tabbed-contents {
 		}
 
 		&-panel-item {
-            transition: height 0.5s ease;
-            @apply h-full;
+			transition: height 0.5s ease;
+			@apply h-full;
 
 			&:not(.active) {
-                @apply h-[80%];
+				@apply h-[80%];
 			}
 		}
 	}
 
-	.splide__slide {
-		@apply flex items-center;
+	.splide {
+		&__track {
+			@apply overflow-visible;
+		}
 
-		/* &:not(.is-active) {
-			.tbc-panel-item {
-				@apply h-[80%];
-			}
-		} */
+		&__slide {
+			@apply flex items-center;
+
+			/* &:not(.is-active) {
+                .tbc-panel-item {
+                    @apply h-[80%];
+                }
+            } */
+		}
 	}
 }
