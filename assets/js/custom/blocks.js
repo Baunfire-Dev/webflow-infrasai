@@ -510,12 +510,14 @@
                             .filter(el => el !== body);
 
                         gsap.timeline()
-                            .to(otherBodies, {
-                                height: 0,
-                                duration: 0.4,
-                                overwrite: true,
-                                ease: "power2.out",
-                            }, "transition"
+                            .to(otherBodies,
+                                {
+                                    height: 0,
+                                    duration: 0.4,
+                                    overwrite: true,
+                                    ease: "power2.out",
+                                }, 
+                                0
                             )
                             .fromTo(
                                 body,
@@ -528,7 +530,7 @@
                                     overwrite: true,
                                     ease: "power2.out",
                                 },
-                                "transition"
+                                0
                             );
 
                         baunfire.Global.screenSizeChange();
