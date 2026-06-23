@@ -32,13 +32,13 @@ section.tabbed-contents {
 		}
 	}
 
-	/* .splide__slide {
+	.splide__slide {
 		@apply flex items-center;
 
-		&:not(.is-active) {
+		/* &:not(.is-active) {
 			.tbc-panel-item {
 				@apply h-[80%];
 			}
-		}
-	} */
+		} */
+	}
 }
