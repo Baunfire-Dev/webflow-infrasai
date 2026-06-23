@@ -512,7 +512,7 @@
                         gsap.timeline()
                             .to(otherBodies, {
                                 height: 0,
-                                duration: 0.6,
+                                duration: 0.4,
                                 overwrite: true,
                                 ease: "power2.out",
                             }, "transition"
@@ -524,7 +524,7 @@
                                 },
                                 {
                                     height: "auto",
-                                    duration: 0.6,
+                                    duration: 0.4,
                                     overwrite: true,
                                     ease: "power2.out",
                                 },
