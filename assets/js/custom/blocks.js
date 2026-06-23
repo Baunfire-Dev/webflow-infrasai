@@ -567,7 +567,7 @@
 
                 baunfire.Global.importSplideScript(() => {
                     const slider = new Splide(splide, {
-                        type: 'loop',
+                        type: 'slide',
                         perPage: 1,
                         gap: '1rem',
                         arrows: false,
@@ -584,21 +584,25 @@
 
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
-                        bindTabs(self, slider);
+
+                        const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
+                        const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
+
+                        bindTabs(self, slider, tabs, panels);
+                        updateActiveTabs(tabs, panels, slider.index);
                     });
 
                     slider.on('move', (newIndex) => {
-                        updateActiveTabs(self, newIndex);
+                        const tabs = [...self.querySelectorAll('.tbc-tab[target]')];
+                        const panels = [...self.querySelectorAll('.tbc-panel-item[id]')];
+                        updateActiveTabs(tabs, panels, newIndex);
                     });
 
                     slider.mount();
                 });
             }
 
-            const bindTabs = (self, slider) => {
-                const tabs = self.querySelectorAll('.tbc-tab[target]');
-                const panels = self.querySelectorAll('.tbc-panel-item[id]');
-
+            const bindTabs = (self, slider, tabs, panels) => {
                 const indexMap = {};
                 panels.forEach((panel, i) => {
                     indexMap[panel.id] = i;
@@ -613,14 +617,9 @@
                         }
                     });
                 });
-
-                updateActiveTabs(self, slider.index);
             }
 
-            const updateActiveTabs = (self, activeIndex) => {
-                const tabs = self.querySelectorAll('.tbc-tab[target]');
-                const panels = self.querySelectorAll('.tbc-panel-item[id]');
-
+            const updateActiveTabs = (tabs, panels, activeIndex) => {
                 const activePanel = panels[activeIndex];
                 if (!activePanel) return;
 
