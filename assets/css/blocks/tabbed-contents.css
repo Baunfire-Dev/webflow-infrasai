@@ -32,7 +32,7 @@ section.tabbed-contents {
 		}
 	}
 
-	.splide__slide {
+	/* .splide__slide {
 		@apply flex items-center;
 
 		&:not(.is-active) {
@@ -40,5 +40,5 @@ section.tabbed-contents {
 				@apply h-[80%];
 			}
 		}
-	}
+	} */
 }
