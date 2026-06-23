@@ -506,8 +506,7 @@
                             scrollToSection(acc);
                         }
 
-                        const otherBodies = [...self.querySelectorAll(".acc-body")]
-                            .filter(el => el !== body);
+                        const otherBodies = [...self.querySelectorAll(".acc-body")].filter(el => el !== body);
 
                         gsap.timeline()
                             .to(otherBodies,
