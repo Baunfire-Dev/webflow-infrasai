@@ -7,10 +7,10 @@ section.faqs {
 			@apply h-0 overflow-hidden;
 		}
 
-		&-body-inner {
+		/* &-body-inner {
 			@apply opacity-0 invisible;
 			transform: translateX(0.875rem);
-		}
+		} */
 
 		&-sign {
 			&.v {
@@ -26,7 +26,7 @@ section.faqs {
 					}
 				}
 
-				&-body {
+				/* &-body {
 					@apply h-auto;
 				}
 
@@ -34,7 +34,7 @@ section.faqs {
 					@apply visible opacity-100;
 					@apply transition-all duration-500 ease-out;
 					transform: translateY(0);
-				}
+				} */
 			}
 		}
 

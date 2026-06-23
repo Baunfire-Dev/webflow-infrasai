@@ -486,7 +486,7 @@
                 els.forEach(self => {
                     handleFAQ(self);
                 });
-            }
+            };
 
             const handleFAQ = (self) => {
                 const accs = self.querySelectorAll(".acc");
@@ -516,7 +516,7 @@
                     duration: 1,
                     offset: -100,
                 });
-            }
+            };
 
             script();
         }
