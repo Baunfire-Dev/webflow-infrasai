@@ -10,6 +10,7 @@
             this.accordionTextmedia();
             this.testimonialCarousel();
             this.faqs();
+            this.tabbedContent();
 
             this.richTextTOC();
             this.blocksWithTOC();
@@ -548,7 +549,48 @@
             };
 
             script();
-        }
+        },
+
+        tabbedContent() {
+            const script = () => {
+                const els = document.querySelectorAll("section.tabbed-content");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleCarousel(self);
+                });
+            }
+
+            const handleCarousel = (self) => {
+                const splide = self.querySelector(".splide");
+                if (!splide) return;
+
+                baunfire.Global.importSplideScript(() => {
+                    const slider = new Splide(splide, {
+                        type: 'loop',
+                        perPage: 1,
+                        gap: '1rem',
+                        arrows: false,
+                        autoHeight: true,
+                        speed: 600,
+                        easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                        reducedMotion: {
+                            speed: 600,
+                        },
+                        autoplay: true,
+                        interval: 6000,
+                    });
+
+                    slider.on('ready', () => {
+                        baunfire.Global.screenSizeChange();
+                    });
+
+                    slider.mount();
+                });
+            }
+
+            script();
+        },
     };
 
     baunfire.addModule(baunfire.Blocks);
