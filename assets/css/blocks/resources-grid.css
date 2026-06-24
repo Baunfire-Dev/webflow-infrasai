@@ -1,0 +1,37 @@
+section.blog-post {
+	.bp {
+		&-anchor {
+			@apply relative;
+
+			&::before {
+				content: "";
+				@apply absolute size-[0.375rem] bg-white top-1/2 left-0 opacity-0;
+				transform: translateY(-50%);
+			}
+
+			&.active {
+				@apply opacity-100;
+
+				&::before {
+					@apply opacity-100 delay-200;
+				}
+
+				.rtt-anchor-text {
+					@apply pl-[0.875rem];
+				}
+			}
+
+            &:not(.active) {
+                &::before {
+					@apply transition-none;
+				}
+            }
+		}
+
+		&-anchor,
+		&-anchor::before,
+		&-anchor-text {
+			@apply transition-all duration-300 ease-out;
+		}
+	}
+}

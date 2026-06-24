@@ -703,8 +703,6 @@
                 const textBlock = self.querySelector(".rtt-text-block.is-blog-post");
                 const anchorsContainer = self.querySelector(".bp-toc-inner");
 
-                console.log(textBlock, anchorsContainer);
-
                 if (!textBlock || !anchorsContainer) return;
 
                 const headings = textBlock.querySelectorAll("h3");
@@ -750,7 +748,7 @@
             const handleTOC = (self) => {
                 const mm = gsap.matchMedia();
 
-                const links = self.querySelectorAll(".rtt-anchor");
+                const links = self.querySelectorAll(".bp-anchor");
                 const targets = self.querySelectorAll(".rtt-text-block-anchor");
 
                 if (!links || !targets) return;
@@ -771,7 +769,7 @@
 
                 targets.forEach(target => {
                     const id = target.id;
-                    const targetLink = self.querySelector(`.rtt-anchor[anchor='${id}']`);
+                    const targetLink = self.querySelector(`.bp-anchor[anchor='${id}']`);
                     if (!targetLink) return;
 
                     ScrollTrigger.create({
