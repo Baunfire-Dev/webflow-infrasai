@@ -708,7 +708,7 @@
                 const headings = textBlock.querySelectorAll("h3");
                 if (!headings.length) return;
 
-                tocInner.innerHTML = "";
+                anchorsContainer.innerHTML = "";
 
                 headings.forEach(h3 => {
                     const rawText = h3.textContent.trim();
