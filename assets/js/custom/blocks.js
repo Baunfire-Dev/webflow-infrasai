@@ -778,8 +778,8 @@
 
                     ScrollTrigger.create({
                         trigger: target,
-                        start: "top top+=96px",
-                        end: "bottom bottom+=96px",
+                        start: "top top",
+                        end: "bottom top",
                         markers: true,
                         onEnter: () => activateLink(links, targetLink),
                         onEnterBack: () => activateLink(links, targetLink),
