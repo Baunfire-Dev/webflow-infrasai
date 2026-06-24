@@ -117,7 +117,7 @@
         },
 
         generateGlass() {
-            document.querySelectorAll('.glass-card').forEach(card => {
+            document.querySelectorAll('.glass-card:not(.active)').forEach(card => {
                 card.insertAdjacentHTML('afterbegin', `
                     <div class="rim"></div>
                     <div class="inner-glow"></div>
