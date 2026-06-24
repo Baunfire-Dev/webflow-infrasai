@@ -703,6 +703,8 @@
                 const textBlock = self.querySelector(".rtt-text-block.is-blog-post");
                 const anchorsContainer = self.querySelector(".bp-toc-inner");
 
+                console.log(textBlock, anchorsContainer);
+
                 if (!textBlock || !anchorsContainer) return;
 
                 const headings = textBlock.querySelectorAll("h3");
