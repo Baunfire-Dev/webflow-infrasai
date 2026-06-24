@@ -27,6 +27,6 @@ html {
 	}
 
     &.is-ready {
-        @Apply opacity-100;
+        @apply opacity-100;
     }
 }
