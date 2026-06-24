@@ -730,7 +730,10 @@
                         uniqueId = `${id}-${counter++}`;
                     }
 
-                    h3.id = uniqueId;
+                    const anchorDiv = document.createElement("div");
+                    anchorDiv.id = uniqueId;
+                    anchorDiv.classList.add("rtt-text-block-anchor");
+                    h3.appendChild(anchorDiv);
 
                     const anchor = document.createElement("div");
                     anchor.setAttribute("anchor", uniqueId);
