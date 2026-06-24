@@ -711,7 +711,7 @@
 
                 if (!textBlock || !anchorsContainer) return;
 
-                const headings = textBlock.querySelectorAll("h3");
+                const headings = textBlock.querySelectorAll("h2");
                 if (!headings.length) return;
 
                 anchorsContainer.innerHTML = "";
