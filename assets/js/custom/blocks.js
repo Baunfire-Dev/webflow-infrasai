@@ -732,7 +732,7 @@
 
                     const anchorDiv = document.createElement("div");
                     anchorDiv.id = uniqueId;
-                    anchorDiv.classList.add("rtt-text-block-anchor");
+                    anchorDiv.classList.add("bp-text-block-anchor");
                     h3.appendChild(anchorDiv);
 
                     const anchor = document.createElement("div");
