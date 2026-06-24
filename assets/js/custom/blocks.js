@@ -696,6 +696,12 @@
                 els.forEach(self => {
                     buildTOC(self);
                     handleTOC(self);
+
+                    const ro = new ResizeObserver(() => {
+                        baunfire.Global.screenSizeChange();
+                    });
+
+                    ro.observe(self);
                 });
             }
 
