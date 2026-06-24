@@ -656,7 +656,7 @@
                     const slider = new Splide(splide, {
                         type: 'loop',
                         perPage: 1,
-                        gap: '1rem',
+                        gap: '2rem',
                         arrows: false,
                         autoHeight: true,
                         speed: 600,
