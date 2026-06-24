@@ -779,6 +779,7 @@
                         trigger: target,
                         start: "top 20%",
                         end: "bottom 20%",
+                        markers: true,
                         onEnter: () => activateLink(links, targetLink),
                         onEnterBack: () => activateLink(links, targetLink),
                     });
