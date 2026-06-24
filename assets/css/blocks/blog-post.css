@@ -16,7 +16,7 @@ section.blog-post {
 					@apply opacity-100 delay-200;
 				}
 
-				.bp-anchor-text {
+				.bp-anchor-txt {
 					@apply pl-[0.875rem];
 				}
 			}
@@ -30,7 +30,7 @@ section.blog-post {
 
 		&-anchor,
 		&-anchor::before,
-		&-anchor-text {
+		&-anchor-txt {
 			@apply transition-all duration-300 ease-out;
 		}
 
