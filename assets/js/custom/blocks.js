@@ -752,7 +752,7 @@
                 const mm = gsap.matchMedia();
 
                 const links = self.querySelectorAll(".bp-anchor");
-                const targets = self.querySelectorAll(".rtt-text-block-anchor");
+                const targets = self.querySelectorAll(".bp-text-block-anchor");
 
                 if (!links || !targets) return;
 
