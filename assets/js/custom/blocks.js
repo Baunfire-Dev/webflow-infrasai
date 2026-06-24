@@ -789,6 +789,8 @@
                 links.forEach(link => link.classList.remove("active"));
                 targetLink.classList.add("active");
             };
+
+            script();
         },
     };
 
