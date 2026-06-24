@@ -4,6 +4,7 @@
             this.heroHomepage();
             this.heroTitle();
             this.heroTitleImage();
+            this.heroFeaturedResources();
 
             this.socialProof();
             this.typeTextReveal();
