@@ -15,6 +15,7 @@
 
             this.richTextTOC();
             this.blocksWithTOC();
+            this.blogPost();
         },
 
         heroHomepage() {
@@ -685,6 +686,107 @@
             }
 
             script();
+        },
+
+        blogPost() {
+            const script = () => {
+                const els = document.querySelectorAll("section.blog-post");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    buildTOC(self);
+                    handleTOC(self);
+                });
+            }
+
+            const buildTOC = (self) => {
+                const textBlock = self.querySelector(".rtt-text-block.is-blog-post");
+                const anchorsContainer = self.querySelector(".bp-toc-inner");
+
+                if (!textBlock || !anchorsContainer) return;
+
+                const headings = textBlock.querySelectorAll("h3");
+                if (!headings.length) return;
+
+                tocInner.innerHTML = "";
+
+                headings.forEach(h3 => {
+                    const rawText = h3.textContent.trim();
+                    if (!rawText) return;
+
+                    const id = rawText
+                        .toLowerCase()
+                        .replace(/[^a-z0-9\s-]/g, "")
+                        .trim()
+                        .replace(/\s+/g, "-")
+                        .replace(/-+/g, "-")
+                        .slice(0, 80);
+
+                    if (!id) return;
+
+                    let uniqueId = id;
+                    let counter = 1;
+                    while (document.getElementById(uniqueId)) {
+                        uniqueId = `${id}-${counter++}`;
+                    }
+
+                    h2.id = uniqueId;
+
+                    const anchor = document.createElement("div");
+                    anchor.setAttribute("anchor", uniqueId);
+                    anchor.classList.add("bp-anchor");
+
+                    const p = document.createElement("p");
+                    p.classList.add("bp-anchor-txt");
+                    p.textContent = rawText;
+
+                    anchor.appendChild(p);
+                    anchorsContainer.appendChild(anchor);
+                });
+            }
+
+            const handleTOC = (self) => {
+                const mm = gsap.matchMedia();
+
+                const links = self.querySelectorAll(".rtt-anchor");
+                const targets = self.querySelectorAll(".rtt-text-block-anchor");
+
+                if (!links || !targets) return;
+
+                links[0].classList.add("active");
+
+                links.forEach(link => link.addEventListener("click", () => {
+                    baunfire.lenis?.stop();
+
+                    const target = document.getElementById(link.getAttribute('anchor'));
+                    if (!target) return;
+
+                    baunfire.lenis?.start();
+                    baunfire.lenis?.scrollTo(target, {
+                        duration: 1,
+                    });
+                }));
+
+                targets.forEach(target => {
+                    const id = target.id;
+                    const targetLink = self.querySelector(`.rtt-anchor[anchor='${id}']`);
+                    if (!targetLink) return;
+
+                    ScrollTrigger.create({
+                        trigger: target,
+                        start: "top 20%",
+                        end: "bottom 20%",
+                        onEnter: () => activateLink(links, targetLink),
+                        onEnterBack: () => activateLink(links, targetLink),
+                    });
+                });
+            }
+
+            const activateLink = (links, targetLink) => {
+                if (!targetLink) return;
+                links.forEach(link => link.classList.remove("active"));
+                targetLink.classList.add("active");
+            };
         },
     };
 
