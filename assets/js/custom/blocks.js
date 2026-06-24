@@ -705,13 +705,13 @@
 
                 if (!textBlock || !anchorsContainer) return;
 
-                const headings = textBlock.querySelectorAll("h3");
+                const headings = textBlock.querySelectorAll("h2, h3");
                 if (!headings.length) return;
 
                 anchorsContainer.innerHTML = "";
 
-                headings.forEach(h3 => {
-                    const rawText = h3.textContent.trim();
+                headings.forEach(heading => {
+                    const rawText = heading.textContent.trim();
                     if (!rawText) return;
 
                     const id = rawText
@@ -733,7 +733,7 @@
                     const anchorDiv = document.createElement("div");
                     anchorDiv.id = uniqueId;
                     anchorDiv.classList.add("bp-text-block-anchor");
-                    h3.appendChild(anchorDiv);
+                    heading.appendChild(anchorDiv);
 
                     const anchor = document.createElement("div");
                     anchor.setAttribute("anchor", uniqueId);
