@@ -1,4 +1,5 @@
-section.featured-resources {
+section.featured-resources,
+section.resources-grid {
 	.fr {
 		&-item {
 			@apply border border-solid border-transparent;
