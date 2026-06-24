@@ -6,7 +6,7 @@ html {
 }
 
 .splide {
-    @apply transition-opacity duration-300 ease-out opacity-0 delay-200;
+    @apply transition-opacity duration-300 ease-out opacity-0 delay-500;
 
 	.splide__pagination {
 		@apply flex gap-[0.625rem];
