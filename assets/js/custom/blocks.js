@@ -730,7 +730,7 @@
                         uniqueId = `${id}-${counter++}`;
                     }
 
-                    h2.id = uniqueId;
+                    h3.id = uniqueId;
 
                     const anchor = document.createElement("div");
                     anchor.setAttribute("anchor", uniqueId);
