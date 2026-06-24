@@ -16,7 +16,7 @@ section.blog-post {
 					@apply opacity-100 delay-200;
 				}
 
-				.rtt-anchor-text {
+				.bp-anchor-text {
 					@apply pl-[0.875rem];
 				}
 			}
