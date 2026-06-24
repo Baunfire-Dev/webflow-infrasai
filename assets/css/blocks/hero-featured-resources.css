@@ -11,12 +11,10 @@ section.hero-featured-resources {
 	}
 
 	.splide {
-		.splide__pagination {
-            @apply w-fit;
+        @apply static;
 
-			@media not all and (min-width: 48rem) {
-				@apply bottom-[-5rem] p-0 h-[3rem] items-center;
-			}
+		.splide__pagination {
+            @apply w-fit bottom-0 h-[3rem] p-0;
 		}
 	}
 }
