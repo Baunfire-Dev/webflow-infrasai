@@ -35,8 +35,8 @@ section.blog-post {
 		}
 
 		&-text-block-anchor {
-            @apply absolute z-[-1] inset-0;
-			transform: translateY(-6rem);
+			@apply absolute z-[-1] inset-0;
+			transform: translateY(-6.625rem);
 		}
 	}
 }
