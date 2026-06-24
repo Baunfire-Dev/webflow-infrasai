@@ -341,7 +341,8 @@
 
                 baunfire.Global.importSplideScript(() => {
                     const slider = new Splide(splide, {
-                        type: 'loop',
+                        type: 'slide',
+                        rewind: true,
                         perPage: 1,
                         gap: '1rem',
                         arrows: false,
@@ -358,7 +359,7 @@
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
                         splide.classList.add('is-ready');
-                        
+
                         prevBtn?.addEventListener('click', () => slider.go('<'));
                         nextBtn?.addEventListener('click', () => slider.go('>'));
                     });
