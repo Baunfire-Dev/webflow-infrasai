@@ -767,6 +767,7 @@
                     baunfire.lenis?.start();
                     baunfire.lenis?.scrollTo(target, {
                         duration: 1,
+                        offset: -100,
                     });
                 }));
 
@@ -777,9 +778,8 @@
 
                     ScrollTrigger.create({
                         trigger: target,
-                        start: "top top",
-                        end: "bottom top",
-                        markers: true,
+                        start: "top 20%",
+                        end: "bottom 20%",
                         onEnter: () => activateLink(links, targetLink),
                         onEnterBack: () => activateLink(links, targetLink),
                     });
