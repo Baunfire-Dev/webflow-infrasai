@@ -6,6 +6,8 @@ html {
 }
 
 .splide {
+    @apply transition-opacity duration-300 ease-out opacity-0;
+
 	.splide__pagination {
 		@apply flex gap-[0.625rem];
 
@@ -23,4 +25,8 @@ html {
 			transform: scale(1);
 		}
 	}
+
+    &.is-ready {
+        @Apply opacity-100;
+    }
 }

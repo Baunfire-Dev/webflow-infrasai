@@ -357,6 +357,8 @@
 
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
+                        splide.classList.add('is-ready');
+                        
                         prevBtn?.addEventListener('click', () => slider.go('<'));
                         nextBtn?.addEventListener('click', () => slider.go('>'));
                     });
@@ -587,6 +589,7 @@
 
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
+                        splide.classList.add('is-ready');
 
                         bindTabs(slider, tabs, panels);
                         updateActiveTabs(tabs, panels, slider.index);
@@ -670,6 +673,8 @@
 
                     slider.on('ready', () => {
                         baunfire.Global.screenSizeChange();
+                        splide.classList.add('is-ready');
+
                         prevBtn?.addEventListener('click', () => slider.go('<'));
                         nextBtn?.addEventListener('click', () => slider.go('>'));
                     });
