@@ -21,17 +21,22 @@ section.blog-post {
 				}
 			}
 
-            &:not(.active) {
-                &::before {
+			&:not(.active) {
+				&::before {
 					@apply transition-none;
 				}
-            }
+			}
 		}
 
 		&-anchor,
 		&-anchor::before,
 		&-anchor-text {
 			@apply transition-all duration-300 ease-out;
+		}
+
+		&-text-block-anchor {
+            @apply absolute z-[-1] inset-0;
+			transform: translateY(-6rem);
 		}
 	}
 }
