@@ -780,7 +780,7 @@
                         trigger: target,
                         start: "top top",
                         end: "bottom top",
-                        markers: true,
+                        // markers: true,
                         onEnter: () => activateLink(links, targetLink),
                         onEnterBack: () => activateLink(links, targetLink),
                     });
