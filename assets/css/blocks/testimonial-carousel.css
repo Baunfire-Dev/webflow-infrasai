@@ -9,4 +9,14 @@ section.testimonial-carousel {
 			box-shadow: 0 0.25rem 0.25rem 0 rgba(123, 66, 188, 0.25);
 		}
 	}
+
+	.splide {
+		.splide__pagination {
+			@apply p-[0.625rem] bottom-[-4.625rem];
+
+			@media not all and (min-width: 48rem) {
+				@apply bottom-[-5rem] p-0 h-[3rem] w-fit items-center;
+			}
+		}
+	}
 }
