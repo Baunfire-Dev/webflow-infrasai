@@ -348,7 +348,7 @@
 
                 baunfire.Global.importSplideScript(() => {
                     const slider = new Splide(splide, {
-                        type: 'slide',
+                        type: 'loop',
                         rewind: true,
                         perPage: 1,
                         gap: '1rem',
