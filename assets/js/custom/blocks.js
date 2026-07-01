@@ -279,7 +279,7 @@
                         // Close current active tab if clicked
                         if (acc.classList.contains("active")) {
                             acc.classList.remove("active");
-                            images[i]?.classList.remove("active");
+                            // images[i]?.classList.remove("active");
                         } else {
                             accs.forEach(a => a.classList.remove("active"));
                             images.forEach(img => img.classList.remove("active"));
