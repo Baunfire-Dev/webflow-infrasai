@@ -1,6 +1,6 @@
 section.icon-faqs {
 	.i-acc {
-		@apply border-t border-solid border-t-[var(--\_colors---white-20)];
+		@apply border-0 border-t border-solid border-t-[var(--\_colors---white-20)];
 		@apply transition-colors duration-500 ease-out;
 
 		&-body {
