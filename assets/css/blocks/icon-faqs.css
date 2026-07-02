@@ -1,6 +1,6 @@
 section.icon-faqs {
 	.i-acc {
-		@apply border-t border-solid border-transparent;
+		@apply border-t border-solid border-t-[var(--\_colors---white-20)];
 		@apply transition-colors duration-500 ease-out;
 
 		&-body {
@@ -14,7 +14,7 @@ section.icon-faqs {
 		}
 
 		&.active {
-      border-top-color: var(--_colors---white);
+      @apply border-t-[var(--\_colors---white)];
 
 			.i-acc {
 				&-sign {
@@ -26,7 +26,7 @@ section.icon-faqs {
 		}
 
 		&:hover {
-      border-top-color: var(--_colors---white);
+      @apply border-t-[var(--\_colors---white)];
 
 			/* border-color: var(--_colors---purple);
 			background: rgba(0, 0, 0, 0);
