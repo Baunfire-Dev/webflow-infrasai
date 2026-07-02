@@ -1,0 +1,40 @@
+section.icon-faqs {
+	.i-acc {
+		@apply border border-solid border-transparent;
+		@apply transition-colors duration-500 ease-out;
+
+		&-body {
+			@apply h-0 overflow-hidden;
+		}
+
+		&-sign {
+			&.v {
+				@apply transition-opacity duration-300 ease-out;
+			}
+		}
+
+		&.active {
+      @apply border-[var(--_colors---white)];
+
+			.i-acc {
+				&-sign {
+					&.v {
+						@apply opacity-0;
+					}
+				}
+			}
+		}
+
+		&:hover {
+      @apply border-[var(--_colors---white)];
+
+			/* border-color: var(--_colors---purple);
+			background: rgba(0, 0, 0, 0);
+			box-shadow: 0 0.5rem 0.5rem 0 rgba(123, 66, 188, 0.25); */
+
+			.fr-item-link-icon {
+				transform: translateX(0.25rem);
+			}
+		}
+	}
+}
