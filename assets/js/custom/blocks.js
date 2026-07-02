@@ -11,6 +11,7 @@
             this.accordionTextmedia();
             this.testimonialCarousel();
             this.faqs();
+            this.iconFaqs();
             this.tabbedContent();
 
             this.richTextTOC();
@@ -515,6 +516,78 @@
                         acc.classList.add("active");
 
                         const otherBodies = [...self.querySelectorAll(".acc-body")].filter(el => el !== body);
+
+                        gsap.timeline()
+                            .to(otherBodies,
+                                {
+                                    height: 0,
+                                    duration: 0.5,
+                                    overwrite: true,
+                                    ease: "power2.out",
+                                },
+                                0
+                            )
+                            .fromTo(
+                                body,
+                                {
+                                    height: 0,
+                                },
+                                {
+                                    height: "auto",
+                                    duration: 0.5,
+                                    overwrite: true,
+                                    ease: "power2.out",
+                                    onComplete: () => {
+                                        if (window.matchMedia("(max-width: 1200px)").matches) {
+                                            scrollToSection(acc);
+                                        }
+
+                                        baunfire.Global.screenSizeChange();
+                                    }
+                                },
+                                0
+                            );
+                    });
+                });
+            };
+
+            const scrollToSection = (el) => {
+                baunfire.lenis?.stop();
+                baunfire.lenis?.start();
+                baunfire.lenis?.scrollTo(el, {
+                    duration: 1,
+                    offset: -100,
+                });
+            };
+
+            script();
+        },
+
+        iconFaqs() {
+            const script = () => {
+                const els = document.querySelectorAll("section.icon-faqs");
+                if (!els.length) return;
+
+                els.forEach(self => {
+                    handleFAQ(self);
+                });
+            };
+
+            const handleFAQ = (self) => {
+                const accs = self.querySelectorAll(".i-acc");
+                if (!accs.length) return;
+
+                accs.forEach((acc) => {
+                    const body = acc.querySelector(".i-acc-body");
+
+                    acc.addEventListener("click", (e) => {
+                        if (e.target.closest("a, button")) return;
+                        if (acc.classList.contains("active")) return;
+
+                        accs.forEach(a => a.classList.remove("active"));
+                        acc.classList.add("active");
+
+                        const otherBodies = [...self.querySelectorAll(".i-acc-body")].filter(el => el !== body);
 
                         gsap.timeline()
                             .to(otherBodies,
