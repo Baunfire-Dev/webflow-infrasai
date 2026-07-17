@@ -2,7 +2,7 @@ const axios = require("axios");
 
 const ACCOUNT = "dffc52f541ed5a2188c5a8961cc4002e";
 const TOKEN = "cfut_ZZgbPN0aGdby9gVMC0sY1Du1B1wGbs7pWOYqThfj48172605";
-const PROJECT = "webflow-soundhoundai";
+const PROJECT = "webflow-infrasai";
 const INTERVAL = 5000;
 const PLAIN = process.argv.includes("--plain");
 
