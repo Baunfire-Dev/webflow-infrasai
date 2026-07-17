@@ -1,0 +1,26 @@
+section.resources-grid {
+	.rg {
+		&-tabs {
+			&:has(.rg-tab.is-list-active) {
+				.rg-tab.is-active {
+					background: var(--_colors---black);
+					color: var(--_colors---white);
+				}
+			}
+		}
+
+		&-tab {
+            @apply transition-colors duration-300 ease-out;
+            
+            &,
+			* {
+				@apply cursor-pointer;
+			}
+            
+			&.is-list-active {
+				background: var(--_colors---green);
+				color: var(--_colors---black);
+			}
+		}
+	}
+}
