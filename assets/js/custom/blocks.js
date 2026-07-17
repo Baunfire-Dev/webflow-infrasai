@@ -13,6 +13,7 @@
             this.faqs();
             this.iconFaqs();
             this.tabbedContent();
+            this.fiftyFiftyTextMedia();
 
             this.richTextTOC();
             this.blocksWithTOC();
@@ -442,6 +443,7 @@
 
                 els.forEach(self => {
                     handleTOC(self);
+                    handleVideo(self);
                 });
             }
 
@@ -486,6 +488,63 @@
                 if (!targetLink) return;
                 links.forEach(link => link.classList.remove("active"));
                 targetLink.classList.add("active");
+            };
+
+            const handleVideo = (self) => {
+                const videoContainers = self.querySelectorAll(".bwt-video-c");
+                if (!videoContainers) return;
+
+                videoContainers.forEach(videoContainer => {
+                    ScrollTrigger.create({
+                        trigger: videoContainer,
+                        start: "top bottom",
+                        once: true,
+                        onEnter: () => processVideo(self, videoContainer),
+                        onEnterBack: () => processVideo(self, videoContainer),
+                    });
+                });
+            };
+
+            const processVideo = (self, videoContainer) => {
+                setupVideoRaw(self, videoContainer);
+            };
+
+            const setupVideoRaw = (self, videoContainer) => {
+                const videoFile = videoContainer.dataset.video;
+                videoContainer.insertAdjacentHTML("beforeend", `<video muted loop preload="metadata" playsinline><source src="${videoFile}" type="video/mp4">Your browser does not support the video tag.</video>`);
+
+                const videoEl = videoContainer.querySelector("video");
+                autopauseVideo(self, videoEl);
+            };
+
+            const autopauseVideo = (trigger, playerInstance, type = "file") => {
+                const stProps = {
+                    trigger,
+                    start: "top center",
+                    end: "bottom 30%",
+                };
+
+                if (type === "file") {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onEnter: () => playerInstance.play(),
+                        onEnterBack: () => playerInstance.play(),
+                        onLeave: () => playerInstance.pause(),
+                        onLeaveBack: () => playerInstance.pause(),
+                    });
+                } else if (type === "vimeo") {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onLeave: () => playerInstance.pause(),
+                        onLeaveBack: () => playerInstance.pause(),
+                    });
+                } else {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onLeave: () => playerInstance.pauseVideo(),
+                        onLeaveBack: () => playerInstance.pauseVideo(),
+                    });
+                }
             };
 
             script();
@@ -876,6 +935,74 @@
                 if (!targetLink) return;
                 links.forEach(link => link.classList.remove("active"));
                 targetLink.classList.add("active");
+            };
+
+            script();
+        },
+
+        fiftyFiftyTextMedia() {
+            const script = () => {
+                const els = document.querySelectorAll("section.fifty-fifty-text-media");
+                if (!els.length) return;
+
+                els.forEach((self) => {
+                    handleVideo(self);
+                });
+            };
+
+            const handleVideo = (self) => {
+                const videoContainer = self.querySelector(".fftm-video-c");
+                if (!videoContainer) return;
+
+                ScrollTrigger.create({
+                    trigger: self,
+                    start: "top bottom",
+                    once: true,
+                    onEnter: () => processVideo(self, videoContainer),
+                    onEnterBack: () => processVideo(self, videoContainer),
+                });
+            };
+
+            const processVideo = (self, videoContainer) => {
+                setupVideoRaw(self, videoContainer);
+            };
+
+            const setupVideoRaw = (self, videoContainer) => {
+                const videoFile = videoContainer.dataset.video;
+                videoContainer.insertAdjacentHTML("beforeend", `<video muted loop preload="metadata" playsinline><source src="${videoFile}" type="video/mp4">Your browser does not support the video tag.</video>`);
+
+                const videoEl = videoContainer.querySelector("video");
+                autopauseVideo(self, videoEl);
+            };
+
+            const autopauseVideo = (trigger, playerInstance, type = "file") => {
+                const stProps = {
+                    trigger,
+                    start: "top center",
+                    end: "bottom 30%",
+                };
+
+                if (type === "file") {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onEnter: () => playerInstance.play(),
+                        onEnterBack: () => playerInstance.play(),
+                        onLeave: () => playerInstance.pause(),
+                        onLeaveBack: () => playerInstance.pause(),
+                    });
+                } else if (type === "vimeo") {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onLeave: () => playerInstance.pause(),
+                        onLeaveBack: () => playerInstance.pause(),
+                    });
+                } else {
+                    ScrollTrigger.create({
+                        ...stProps,
+                        onLeave: () => playerInstance.pauseVideo(),
+                        onLeaveBack: () => playerInstance.pauseVideo(),
+                    });
+                }
             };
 
             script();

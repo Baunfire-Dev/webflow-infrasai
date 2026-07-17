@@ -3,20 +3,27 @@ section.blocks-with-toc {
 		&-anchor {
 			&.active {
 				.bwt {
-                    &-icon svg path {
-                        fill: var(--_colors---green);
-                    }
+					&-icon svg path {
+						fill: var(--_colors---green);
+					}
 
-                    &-anchor-text {
-                        color: var(--_colors---green);
-                    }
-                }
+					&-anchor-text {
+						color: var(--_colors---green);
+					}
+				}
 			}
 		}
 
-        &-icon svg path,
-        &-anchor-text {
+		&-icon svg path,
+		&-anchor-text {
 			@apply transition-colors duration-300 ease-out;
+		}
+
+		&-video-c {
+			video {
+				@apply aspect-video absolute top-0 left-1/2 w-auto h-full;
+				transform: translateX(-50%);
+			}
 		}
 	}
 }

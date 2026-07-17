@@ -15,7 +15,7 @@
     },
     "scripts": {
         "dev": "concurrently -n tailwind,javascript,cloudflare -c \"#38BDF8,#F7DF1E,#F38020\" \"npm:tw\" \"npm:js\" \"npm:deploy:watch:plain\"",
-        "dev:local": "concurrently -n tailwind,javascript,cloudflare,local -c \"#38BDF8,#F7DF1E,#F38020,#A78BFA\" \"npm:tw\" \"npm:js\" \"npm:deploy:watch:plain\" \"npm:local\"",
+        "dev:local": "concurrently -n tailwind,javascript,local -c \"#38BDF8,#F7DF1E,#A78BFA\" \"npm:tw\" \"npm:js\" \"npm:local\"",
         "local": "npx serve . -l 3000",
         "js": "node build/compile-scripts.js --watch",
         "tw": "npx tailwindcss -i assets/css/theme/tailwind.css -o assets/css/bundles/styles.css --postcss --watch --poll --minify",

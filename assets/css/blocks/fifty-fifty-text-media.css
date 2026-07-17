@@ -1,0 +1,8 @@
+section.fifty-fifty-text-media {
+    .fftm-video-c {
+        video {
+            @apply aspect-video absolute top-0 left-1/2 w-auto h-full;
+            transform: translateX(-50%);
+        }
+    }
+}

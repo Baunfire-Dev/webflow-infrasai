@@ -1,5 +1,5 @@
 (function () {
-    const templateURL = 'https://baunfire-dev.github.io/webflow-infrasai';
+    const templateURL = 'https://webflow-infrasai.pages.dev';
 
     baunfire.Global = {
 
