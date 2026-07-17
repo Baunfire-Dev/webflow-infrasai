@@ -1,20 +1,26 @@
 {
     "devDependencies": {
         "autoprefixer": "latest",
+        "axios": "^1.18.1",
+        "concurrently": "^10.0.3",
         "esbuild": "^0.25.4",
-        "npm-run-all": "^4.1.5",
+        "fluid-tailwind": "latest",
+        "ora": "^9.4.1",
         "postcss": "latest",
         "postcss-import": "latest",
         "postcss-import-ext-glob": "latest",
         "postcss-nested": "latest",
         "postcss-nesting": "latest",
-        "tailwindcss": "^3.4.17",
-        "fluid-tailwind": "latest"
+        "tailwindcss": "^3.4.17"
     },
     "scripts": {
-        "dev": "npm-run-all --parallel tw js",
+        "dev": "concurrently -n tailwind,javascript,cloudflare -c \"#38BDF8,#F7DF1E,#F38020\" \"npm:tw\" \"npm:js\" \"npm:deploy:watch:plain\"",
+        "dev:local": "concurrently -n tailwind,javascript,cloudflare,local -c \"#38BDF8,#F7DF1E,#F38020,#A78BFA\" \"npm:tw\" \"npm:js\" \"npm:deploy:watch:plain\" \"npm:local\"",
+        "local": "npx serve . -l 3000",
         "js": "node build/compile-scripts.js --watch",
-        "tw": "npx tailwindcss -i assets/css/theme/tailwind.css -o assets/css/bundles/styles.css --postcss --watch --poll --minify"
+        "tw": "npx tailwindcss -i assets/css/theme/tailwind.css -o assets/css/bundles/styles.css --postcss --watch --poll --minify",
+        "deploy:watch": "node build/cloudflare-watch.js",
+        "deploy:watch:plain": "node build/cloudflare-watch.js --plain"
     },
     "dependencies": {
         "gsap": "^3.12.5",
